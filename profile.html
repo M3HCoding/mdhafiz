@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Hafiz - Senior Android Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #24292e;
+            --secondary-color: #0366d6;
+            --bg-color: #f6f8fa;
+            --card-color: #ffffff;
+            --text-color: #24292e;
+            --light-text: #586069;
+            --border-color: #e1e4e8;
+            --play-store-color: #3cba54;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1012px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+            background-color: #e1e4e8;
+            overflow: hidden;
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-info h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+        
+        .profile-info p {
+            color: var(--light-text);
+            margin: 0 0 10px 0;
+        }
+        
+        .profile-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .profile-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .profile-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .section {
+            background-color: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        
+        .experience-item, .project-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+        
+        .company {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .date {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        
+        .tech-item {
+            background-color: var(--bg-color);
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-color);
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 5px;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .skill-category h3 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-degree {
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .education-school {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        
+        .education-date {
+            color: var(--light-text);
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .achievement-item {
+            margin-bottom: 10px;
+        }
+        
+        .achievement-title {
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .achievement-desc {
+            margin: 0;
+            color: var(--light-text);
+        }
+        
+        .play-store-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--play-store-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+        
+        .play-store-link:hover {
+            text-decoration: underline;
+        }
+        
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .profile-links {
+                justify-content: center;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="avatar">
+                <!-- Replace with your actual profile image -->
+                <img src="https://media.licdn.com/dms/image/v2/D5635AQGwANGLmb43BQ/profile-framedphoto-shrink_200_200/B56ZcalXERG0Ag-/0/1748497691453?e=1749715200&v=beta&t=ICeHl0-JC5AdFkyKUXYFwRI_nf3PhElTqDvJ0BUnQW8" alt="Md Hafiz Profile Picture">
+                <!-- Or use initials if no image -->
+                <!-- <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 40px; color: #fff; background: #0366d6;">MH</div> -->
+            </div>
+            <div class="profile-info">
+                <h1>Md Hafiz</h1>
+                <p>Senior Android App Developer</p>
+                <div class="profile-links">
+                    <a href="tel:+918092308016"><i class="fas fa-phone"></i> +91 8092308016</a>
+                    <a href="mailto:mdhafiz7215@gmail.com"><i class="fas fa-envelope"></i> mdhafiz7215@gmail.com</a>
+        	    <a href="https://www.linkedin.com/in/ermdhafiz/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/M3HCoding" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+               
+                </div>
+            </div>
+        </header>
+        
+        <div class="section">
+            <h2 class="section-title">About</h2>
+            <p>Innovative Senior Android Developer with 6+ years of expertise in Kotlin and Java, specializing in Android Automotive apps, Play Store deployments, and scalable mobile solutions. Passionate about building user-centric apps that deliver seamless experiences across devices, including automotive systems.</p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3 class="company">The Indian Express Pvt Ltd, Noida</h3>
+                <p class="job-title">Senior Android Developer</p>
+                <p class="date">09/2021 – Present</p>
+                <div class="tech-stack">
+                    <span class="tech-item">Kotlin</span>
+                    <span class="tech-item">Java</span>
+                    <span class="tech-item">Jetpack Compose</span>
+                    <span class="tech-item">Dagger-Hilt</span>
+                    <span class="tech-item">Firebase</span>
+                    <span class="tech-item">Navigation Graph</span>
+                </div>
+                <ul>
+                    <li>Developed the <strong>Automotive Indian Express Car App</strong>, a modular app for podcasts and shorts, optimized for in-car entertainment systems.</li>
+                    <li>Implemented Navigation Graph for seamless user journeys and deep linking for better engagement.</li>
+                    <li>Integrated Firebase for real-time updates and analytics.</li>
+                    <li>Led the deployment of 5+ high-impact news apps (e.g., The Indian Express, Financial Express, LokSatta) on Google Play, reaching 1M+ downloads.</li>
+                    <li>Designed scalable architectures using MVVM and Clean Architecture, improving code maintainability and scalability.</li>
+                    <li>Integrated SDKs like MoEngage, CleverTap, and Razorpay for enhanced functionality.</li>
+                    <li>Mentored a team of 4 developers, conducted code reviews, and ensured adherence to clean code principles.</li>
+                </ul>
+                <p><strong>Key Achievements:</strong> Won IE Hack 2023 for significantly improving app notification CTR (Click-Through Rate). Boosted user engagement by 20% through FCM push notifications and deep linking.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="company">ZMQ Technology for Development, Delhi</h3>
+                <p class="job-title">Software Engineer</p>
+                <p class="date">01/2018 – 09/2021</p>
+                <div class="tech-stack">
+                    <span class="tech-item">Java</span>
+                    <span class="tech-item">Kotlin</span>
+                    <span class="tech-item">Firebase</span>
+                    <span class="tech-item">REST APIs</span>
+                </div>
+                <ul>
+                    <li>Designed, developed, and deployed feature-rich Android apps from scratch, including Vishwaas Toolkit and ASHA Case Management Toolkit, impacting 500K+ users.</li>
+                    <li>Built dynamic form builders for real-time data collection, improving data accuracy by 30%.</li>
+                    <li>Resolved issues in location tracking and data synchronization, reducing crashes by 15%.</li>
+                    <li>Utilized Firebase for secure cloud storage and real-time data updates.</li>
+                    <li>Successfully launched 4+ health-tech apps (e.g., TB StoryTeller, Pneumonia StoryTeller) on Google Play.</li>
+                </ul>
+                <p><strong>Key Achievements:</strong> Awarded Employee of the Year 2020 for outstanding contributions.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Projects</h2>
+            
+            <div class="project-item">
+                <h3>Android Automotive Car App</h3>
+                <ul>
+                    <li><strong>Automotive Indian Express Car App</strong>: Modular app for podcasts and shorts, optimized for automotive devices.</li>
+                    <li>Utilized Kotlin, Navigation Graph, and Jetpack Compose for seamless user experiences.</li>
+                    <li>Integrated Firebase for real-time updates and analytics.</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.example.automotiveapp" target="_blank" class="play-store-link">
+                        <i class="fab fa-google-play"></i> Download on Play Store
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <h3>News Apps</h3>
+                <ul>
+                    <li><strong>The Indian Express</strong>: Premier news app with real-time updates</li>
+                    <li><strong>Financial Express</strong>: Leading financial news platform</li>
+                    <li><strong>LokSatta</strong>: Regional news app in Marathi</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.indianexpress.android" target="_blank" class="play-store-link">
+                        <i class="fab fa-google-play"></i> The Indian Express
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.financialexpress.android" target="_blank" class="play-store-link">
+                        <i class="fab fa-google-play"></i> Financial Express
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.loksatta.android" target="_blank" class="play-store-link">
+                        <i class="fab fa-google-play"></i> LokSatta
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <h3>Health-Tech Apps</h3>
+                <ul>
+                    <li><strong>Vishwaas Toolkit</strong>: Health-tech app for real-time data collection</li>
+                    <li><strong>TB StoryTeller</strong>: App for tuberculosis awareness</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.zmq.uni.sbcc" target="_blank" class="play-store-link">
+                        <i class="fab fa-google-play"></i> Vishwaas Toolkit
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.zmq.storyteller.tb" target="_blank" class="play-store-link">
+                        <i class="fab fa-google-play"></i> TB StoryTeller
+                    </a>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <h3>Islamic Unity App</h3>
+                <ul>
+                    <li>A community-focused app with podcasts, educational content, and Quranic resources.</li>
+                    <li>Built with Kotlin, MVVM architecture, and Navigation Graph for smooth navigation.</li>
+                    <li>Integrated Firebase Analytics and FCM for user engagement tracking and push notifications.</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.islamicunity.android&hl=en" target="_blank" class="play-store-link">
+                        <i class="fab fa-google-play"></i> Islamic Unity
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Kotlin</li>
+                        <li>Java</li>
+                        <li>C</li>
+                        <li>C++</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks</h3>
+                    <ul>
+                        <li>Jetpack Compose</li>
+                        <li>Retrofit</li>
+                        <li>Room</li>
+                        <li>Dagger-Hilt</li>
+                        <li>Coroutines</li>
+                        <li>Navigation Graph</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>Android SDK, NDK</li>
+                        <li>MoEngage, CleverTap</li>
+                        <li>Razorpay</li>
+                        <li>Firebase (FCM, Analytics, Realtime DB, Crashlytics)</li>
+                        <li>Android Studio, IntelliJ IDEA</li>
+                        <li>Git, Jira, Trello</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Testing</h3>
+                    <ul>
+                        <li>Unit Testing</li>
+                        <li>UI Testing</li>
+                        <li>Debugging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <p class="education-degree">Bachelor of Technology (B.Tech) in Computer Science and Engineering</p>
+                <p class="education-school">Dr. A.P.J. Abdul Kalam Technical University, Lucknow</p>
+                <p class="education-date">2017</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Awards & Achievements</h2>
+            <div class="achievement-item">
+                <p class="achievement-title">IE Hack 2023 Winner</p>
+                <p class="achievement-desc">Improved app notification CTR by 30%.</p>
+            </div>
+            <div class="achievement-item">
+                <p class="achievement-title">Employee of the Year 2020, ZMQ Technology</p>
+                <p class="achievement-desc">Recognized for exceptional performance and leadership.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
