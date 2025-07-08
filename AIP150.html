@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Interview Questions & Answers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --code-bg: #2d2d2d;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            padding-bottom: 50px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+        
+        #search-input {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+            padding-left: 45px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .category-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .questions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .question-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background: var(--secondary);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h3 {
+            font-size: 1.2rem;
+        }
+        
+        .card-category {
+            background: var(--accent);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-content p {
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        
+        .code-block {
+            background: var(--code-bg);
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        
+        .example-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin: 15px 0 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-footer {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+        }
+        
+        .difficulty {
+            font-weight: 600;
+        }
+        
+        .difficulty.easy {
+            color: var(--success);
+        }
+        
+        .difficulty.medium {
+            color: var(--warning);
+        }
+        
+        .difficulty.hard {
+            color: var(--accent);
+        }
+        
+        .view-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .view-more:hover {
+            text-decoration: underline;
+        }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .no-results i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .no-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        @media (max-width: 768px) {
+            .questions-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.5);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .floating-btn:hover {
+            transform: translateY(-5px);
+            background: #2980b9;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fab fa-android"></i> Android Interview Questions & Answers</h1>
+            <p>Comprehensive guide covering all aspects of Android development with explanations and code examples</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" placeholder="Search questions by keyword...">
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All Categories</button>
+            <button class="category-btn" data-category="core">Core Components</button>
+            <button class="category-btn" data-category="ui">UI & Layout</button>
+            <button class="category-btn" data-category="compose">Jetpack Compose</button>
+            <button class="category-btn" data-category="architecture">Architecture</button>
+            <button class="category-btn" data-category="data">Data Persistence</button>
+            <button class="category-btn" data-category="networking">Networking</button>
+            <button class="category-btn" data-category="concurrency">Concurrency</button>
+            <button class="category-btn" data-category="kotlin">Kotlin</button>
+            <button class="category-btn" data-category="performance">Performance</button>
+        </div>
+        
+        <div class="questions-container" id="questions-container">
+            <!-- Core Components Questions -->
+            <div class="question-card" data-category="core">
+                <div class="card-header">
+                    <h3>Activity Lifecycle & Callbacks</h3>
+                    <span class="card-category">Core</span>
+                </div>
+                <div class="card-content">
+                    <p>The Android activity lifecycle consists of a series of callback methods that get called as an activity transitions between different states: Created, Started, Resumed, Paused, Stopped, and Destroyed.</p>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> Example:
+                    </div>
+                    <div class="code-block">
+                        override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+    // Initialize components
+}
+
+override fun onStart() {
+    super.onStart()
+    // Activity becoming visible
+}
+
+override fun onResume() {
+    super.onResume()
+    // Activity in foreground
+}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty medium">Medium</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="question-card" data-category="core">
+                <div class="card-header">
+                    <h3>onPause() vs onStop() vs onDestroy()</h3>
+                    <span class="card-category">Core</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>onPause()</strong>: Called when activity is partially obscured (still visible). Save transient data here.</p>
+                    <p><strong>onStop()</strong>: Activity no longer visible. Release resources that aren't needed while app is hidden.</p>
+                    <p><strong>onDestroy()</strong>: Final call before activity is destroyed. Clean up resources to prevent leaks.</p>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty easy">Easy</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- UI & Layout Questions -->
+            <div class="question-card" data-category="ui">
+                <div class="card-header">
+                    <h3>View vs ViewGroup</h3>
+                    <span class="card-category">UI & Layout</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>View</strong>: Basic building block for UI components (Button, TextView, etc.). Responsible for drawing and event handling.</p>
+                    <p><strong>ViewGroup</strong>: Subclass of View that contains other views (layouts). Responsible for arranging child views.</p>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> XML Example:
+                    </div>
+                    <div class="code-block">
+                        &lt;LinearLayout&gt;  &lt;!-- ViewGroup --&gt;
+    &lt;TextView /&gt;  &lt;!-- View --&gt;
+    &lt;Button /&gt;    &lt;!-- View --&gt;
+&lt;/LinearLayout&gt;
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty easy">Easy</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="question-card" data-category="ui">
+                <div class="card-header">
+                    <h3>ConstraintLayout Benefits</h3>
+                    <span class="card-category">UI & Layout</span>
+                </div>
+                <div class="card-content">
+                    <p>ConstraintLayout improves performance by:</p>
+                    <ul>
+                        <li>Reducing view hierarchy depth (flat layout)</li>
+                        <li>Eliminating nested layouts</li>
+                        <li>Using constraint-based positioning</li>
+                        <li>Providing better control over view placement</li>
+                    </ul>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> XML Example:
+                    </div>
+                    <div class="code-block">
+                        &lt;androidx.constraintlayout.widget.ConstraintLayout&gt;
+    &lt;Button
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/&gt;
+    
+    &lt;TextView
+        app:layout_constraintStart_toEndOf="@id/button"
+        app:layout_constraintTop_toTopOf="parent"/&gt;
+&lt;/androidx.constraintlayout.widget.ConstraintLayout&gt;
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty medium">Medium</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Compose Questions -->
+            <div class="question-card" data-category="compose">
+                <div class="card-header">
+                    <h3>Jetpack Compose Principles</h3>
+                    <span class="card-category">Jetpack Compose</span>
+                </div>
+                <div class="card-content">
+                    <p>Core principles of Jetpack Compose:</p>
+                    <ul>
+                        <li><strong>Declarative</strong>: Describe UI based on current state</li>
+                        <li><strong>Composable functions</strong>: Build UI with annotated functions</li>
+                        <li><strong>Recomposition</strong>: Efficient UI updates when state changes</li>
+                        <li><strong>Interoperability</strong>: Works with existing View system</li>
+                    </ul>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> Example:
+                    </div>
+                    <div class="code-block">
+                        @Composable
+fun Greeting(name: String) {
+    Text(text = "Hello, $name!")
+}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty medium">Medium</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Architecture Questions -->
+            <div class="question-card" data-category="architecture">
+                <div class="card-header">
+                    <h3>MVVM Benefits</h3>
+                    <span class="card-category">Architecture</span>
+                </div>
+                <div class="card-content">
+                    <p>Benefits of MVVM over MVC/MVP:</p>
+                    <ul>
+                        <li>Separation of concerns (UI, business logic, data)</li>
+                        <li>Lifecycle awareness with ViewModel</li>
+                        <li>Data binding reduces boilerplate code</li>
+                        <li>Easier unit testing of ViewModels</li>
+                        <li>Better handling of configuration changes</li>
+                    </ul>
+                    <div class="example-title">
+                        <i class="fas fa-project-diagram"></i> MVVM Structure:
+                    </div>
+                    <p>View (Activity/Fragment) ↔ ViewModel ↔ Model (Repository)</p>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty medium">Medium</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Data Persistence Questions -->
+            <div class="question-card" data-category="data">
+                <div class="card-header">
+                    <h3>Room Components</h3>
+                    <span class="card-category">Data Persistence</span>
+                </div>
+                <div class="card-content">
+                    <p>Room Persistence Library components:</p>
+                    <ul>
+                        <li><strong>@Entity</strong>: Represents a table in the database</li>
+                        <li><strong>@Dao</strong>: Data Access Object - contains methods to access the database</li>
+                        <li><strong>@Database</strong>: Database holder - serves as the main access point</li>
+                    </ul>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> Example:
+                    </div>
+                    <div class="code-block">
+                        @Entity
+data class User(
+    @PrimaryKey val id: Int,
+    val name: String
+)
+
+@Dao
+interface UserDao {
+    @Query("SELECT * FROM user")
+    fun getAll(): List&lt;User&gt;
+}
+
+@Database(entities = [User::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun userDao(): UserDao
+}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty medium">Medium</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Networking Questions -->
+            <div class="question-card" data-category="networking">
+                <div class="card-header">
+                    <h3>Retrofit Annotations</h3>
+                    <span class="card-category">Networking</span>
+                </div>
+                <div class="card-content">
+                    <p>Common Retrofit annotations:</p>
+                    <ul>
+                        <li><strong>@GET</strong>, <strong>@POST</strong>: Define HTTP request type</li>
+                        <li><strong>@Path</strong>: Replace placeholders in URL</li>
+                        <li><strong>@Query</strong>: Add query parameters</li>
+                        <li><strong>@Body</strong>: Send request body (for POST/PUT)</li>
+                        <li><strong>@Header</strong>: Add headers to request</li>
+                    </ul>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> Example:
+                    </div>
+                    <div class="code-block">
+                        interface ApiService {
+    @GET("users/{id}")
+    fun getUser(@Path("id") userId: String): Call&lt;User&gt;
+    
+    @GET("users")
+    fun getUsers(@Query("page") page: Int): Call&lt;List&lt;User&gt;&gt;
+    
+    @POST("users")
+    fun createUser(@Body user: User): Call&lt;User&gt;
+}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty medium">Medium</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Concurrency Questions -->
+            <div class="question-card" data-category="concurrency">
+                <div class="card-header">
+                    <h3>Kotlin Coroutines Basics</h3>
+                    <span class="card-category">Concurrency</span>
+                </div>
+                <div class="card-content">
+                    <p>Key coroutine concepts:</p>
+                    <ul>
+                        <li><strong>launch</strong>: Start a new coroutine without returning result</li>
+                        <li><strong>async</strong>: Start a coroutine that returns a result (Deferred)</li>
+                        <li><strong>withContext</strong>: Switch coroutine context (e.g., to IO thread)</li>
+                    </ul>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> Example:
+                    </div>
+                    <div class="code-block">
+                        viewModelScope.launch {
+    // Main thread
+    val data = withContext(Dispatchers.IO) {
+        // Background thread - fetch data
+        repository.fetchData()
+    }
+    // Back on Main thread - update UI
+    _uiState.value = data
+}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty medium">Medium</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Kotlin Questions -->
+            <div class="question-card" data-category="kotlin">
+                <div class="card-header">
+                    <h3>Kotlin Null Safety</h3>
+                    <span class="card-category">Kotlin</span>
+                </div>
+                <div class="card-content">
+                    <p>Kotlin's null safety features:</p>
+                    <ul>
+                        <li><strong>?</strong>: Nullable type (String?)</li>
+                        <li><strong>!!</strong>: Non-null assertion (throws NPE)</li>
+                        <li><strong>?.</strong>: Safe call operator (returns null if receiver is null)</li>
+                        <li><strong>?:</strong>: Elvis operator (provide default value)</li>
+                        <li><strong>lateinit</strong>: For non-null properties initialized later</li>
+                        <li><strong>by lazy</strong>: Deferred initialization</li>
+                    </ul>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> Example:
+                    </div>
+                    <div class="code-block">
+                        val length = text?.length  // returns null if text is null
+val safeLength = text?.length ?: 0  // returns 0 if null
+
+lateinit var user: User  // will be initialized later
+
+val db: Database by lazy {
+    // Initialized on first access
+    createDatabase()
+}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty easy">Easy</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <!-- Performance Questions -->
+            <div class="question-card" data-category="performance">
+                <div class="card-header">
+                    <h3>RecyclerView Optimization</h3>
+                    <span class="card-category">Performance</span>
+                </div>
+                <div class="card-content">
+                    <p>Optimizing RecyclerView performance:</p>
+                    <ul>
+                        <li>Always use ViewHolder pattern</li>
+                        <li>Use <strong>DiffUtil</strong> for efficient updates</li>
+                        <li>Implement <strong>ListAdapter</strong> for automatic diffing</li>
+                        <li>Set <strong>setHasFixedSize(true)</strong> when possible</li>
+                        <li>Enable view caching and prefetching</li>
+                        <li>Avoid nested scrolling layouts</li>
+                    </ul>
+                    <div class="example-title">
+                        <i class="fas fa-code"></i> DiffUtil Example:
+                    </div>
+                    <div class="code-block">
+                        class UserDiffCallback : DiffUtil.ItemCallback&lt;User&gt;() {
+    override fun areItemsTheSame(old: User, new: User) =
+        old.id == new.id
+        
+    override fun areContentsTheSame(old: User, new: User) =
+        old == new
+}
+
+val adapter = object : ListAdapter&lt;User, ViewHolder&gt;(UserDiffCallback()) {
+    // Adapter implementation
+}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="difficulty hard">Hard</span>
+                    <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="no-results" id="no-results" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No Questions Found</h3>
+            <p>Try adjusting your search or filter criteria</p>
+        </div>
+    </div>
+    
+    <div class="floating-btn" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const questionCards = document.querySelectorAll('.question-card');
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const category = btn.dataset.category;
+                
+                // Filter questions
+                questionCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Check if any results are visible
+                checkResultsVisibility();
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        const noResults = document.getElementById('no-results');
+        
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+            
+            questionCards.forEach(card => {
+                const questionText = card.querySelector('.card-header h3').textContent.toLowerCase();
+                const contentText = card.querySelector('.card-content').textContent.toLowerCase();
+                
+                if (questionText.includes(searchTerm) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else if (contentText.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no results message
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+            
+            // Also consider category filtering
+            checkResultsVisibility();
+        });
+        
+        function checkResultsVisibility() {
+            const visibleCards = document.querySelectorAll('.question-card[style="display: flex;"]');
+            if (visibleCards.length === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+        
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Show/hide scroll button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.display = 'flex';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+        
+        // Simulate loading more content
+        setTimeout(() => {
+            const container = document.getElementById('questions-container');
+            const loadingCard = document.createElement('div');
+            loadingCard.innerHTML = `
+                <div class="question-card" data-category="performance">
+                    <div class="card-header">
+                        <h3>Reducing APK Size</h3>
+                        <span class="card-category">Performance</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Techniques to reduce APK size:</p>
+                        <ul>
+                            <li>Enable code shrinking (ProGuard/R8)</li>
+                            <li>Use resource shrinking</li>
+                            <li>Convert images to WebP format</li>
+                            <li>Remove unused resources</li>
+                            <li>Use ABI splits for native libraries</li>
+                            <li>Enable resource compression</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <span class="difficulty medium">Medium</span>
+                        <a href="#" class="view-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            `;
+            container.appendChild(loadingCard);
+        }, 1500);
+    </script>
+</body>
+</html>
