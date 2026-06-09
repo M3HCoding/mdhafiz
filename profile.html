@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Hafiz · Senior Android Developer (8+ years)</title>
-    <!-- Font Awesome 6 (free) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Md Hafiz · Senior Android Developer | 8+ Years Expert in Kotlin, Jetpack Compose & Automotive</title>
+    <!-- Font Awesome 6 (Free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Font: Inter (clean, modern) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+    <!-- Google Font: Inter + Fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -18,67 +16,101 @@
         }
 
         body {
-            font-family: "Inter", system-ui, -apple-system, sans-serif;
-            background: #f4f7fc;
-            color: #1e293b;
-            line-height: 1.5;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: #f5f9ff;
+            color: #0a2540;
+            line-height: 1.45;
             scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 28px;
         }
 
-        /* header / hero */
+        /* ----- HERO SECTION (modern gradient) ----- */
         .hero {
-            background: linear-gradient(135deg, #0a2c4b, #103a5e);
+            background: radial-gradient(circle at 10% 30%, #0b2b42, #051e30);
             color: white;
-            padding: 56px 0 64px;
-            margin-bottom: 40px;
-            border-bottom: 5px solid #2563eb;
+            padding: 64px 0 70px;
+            border-bottom: 4px solid #2f7df4;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(47, 125, 244, 0.15);
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
         }
 
         .hero-content {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: space-between;
             gap: 40px;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-text {
             flex: 2;
-            min-width: 280px;
         }
 
         .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
+            font-size: 3.6rem;
+            font-weight: 800;
             letter-spacing: -0.02em;
-            margin-bottom: 8px;
             line-height: 1.2;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #FFFFFF, #bfd9ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
-        .hero .title {
+        .hero-tagline {
             font-size: 1.6rem;
-            font-weight: 400;
-            color: #bfd9ff;
-            margin-bottom: 16px;
+            font-weight: 500;
+            color: #bdd9ff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .hero .summary {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 20px 0 28px;
+        .hero-badge {
+            background: #2f7df430;
+            backdrop-filter: blur(6px);
+            border-radius: 100px;
+            padding: 5px 14px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #d9ebff;
+        }
+
+        .hero-summary {
+            font-size: 1.08rem;
+            max-width: 680px;
+            margin: 18px 0 28px;
             opacity: 0.9;
+            line-height: 1.5;
         }
 
         .btn-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
-            align-items: center;
+            gap: 18px;
         }
 
         .btn {
@@ -86,146 +118,163 @@
             align-items: center;
             gap: 10px;
             background: white;
-            color: #0f3b6a;
+            color: #0b2b42;
             font-weight: 600;
             padding: 12px 32px;
             border-radius: 60px;
             text-decoration: none;
-            font-size: 1.1rem;
-            box-shadow: 0 8px 16px -6px rgba(0,0,0,0.2);
-            transition: all 0.2s;
-            border: 2px solid transparent;
-        }
-
-        .btn i {
-            font-size: 1.2rem;
-        }
-
-        .btn:hover {
-            background: #e6f0ff;
-            transform: translateY(-3px);
-            box-shadow: 0 14px 22px -8px #0a2c4b;
+            font-size: 1rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 18px -8px rgba(0,0,0,0.3);
         }
 
         .btn-outline {
             background: transparent;
-            color: white;
             border: 2px solid white;
+            color: white;
             box-shadow: none;
         }
 
         .btn-outline:hover {
             background: white;
-            color: #0f3b6a;
+            color: #0b2b42;
+            transform: translateY(-2px);
         }
 
-        .profile-placeholder {
-            flex: 1;
+        .btn-primary {
+            background: #2f7df4;
+            color: white;
+            box-shadow: 0 8px 20px -6px #0b2b42;
+        }
+
+        .btn-primary:hover {
+            background: #1f66d4;
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-top: 32px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(4px);
+            padding: 8px 18px;
+            border-radius: 80px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .hero-avatar {
+            flex: 0.8;
             min-width: 200px;
             display: flex;
             justify-content: center;
         }
 
-        .profile-pic {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(145deg, #b3d0ff, #ffffff);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 5px solid rgba(255,255,255,0.3);
-            box-shadow: 0 25px 30px -10px rgba(0,0,0,0.4);
+        .avatar-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 48px;
+            padding: 18px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .profile-pic i {
-            font-size: 7rem;
-            color: #1f4973;
+        .avatar-icon {
+            font-size: 5rem;
+            color: #b6d0ff;
         }
 
-        /* section styling */
-        section {
-            margin: 60px 0;
+        .quick-contact {
+            margin-top: 18px;
+            font-size: 0.9rem;
         }
 
+        /* section titles */
         .section-title {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 2rem;
             font-weight: 700;
             color: #0f3b6a;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #cbd5e1;
-            padding-bottom: 12px;
+            margin: 52px 0 28px 0;
+            border-left: 5px solid #2f7df4;
+            padding-left: 20px;
         }
 
         .section-title i {
-            color: #2563eb;
-            font-size: 2rem;
+            color: #2f7df4;
+            font-size: 1.9rem;
         }
 
         /* about card */
-        .about-card {
+        .about-grid {
             background: white;
-            border-radius: 28px;
-            padding: 32px 40px;
-            box-shadow: 0 10px 30px -8px rgba(0,34,68,0.1);
-            font-size: 1.1rem;
-            border: 1px solid #e2e8f0;
+            border-radius: 32px;
+            padding: 32px 36px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
+            border: 1px solid #e9f0fa;
+            transition: 0.2s;
         }
 
-        /* skills grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-            gap: 18px;
-            margin-top: 20px;
-        }
-
-        .skill-item {
-            background: white;
-            border-radius: 40px;
-            padding: 12px 20px;
-            font-weight: 500;
+        /* skills chips modern */
+        .skills-cloud {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-            border: 1px solid #e0edff;
+            margin-top: 12px;
+        }
+
+        .skill-chip {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 8px 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #dceaff;
             transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
         }
 
-        .skill-item i {
-            color: #2563eb;
-            width: 24px;
-            font-size: 1.3rem;
+        .skill-chip i {
+            color: #2f7df4;
+            font-size: 1rem;
         }
 
-        .skill-item:hover {
-            border-color: #2563eb;
-            transform: scale(1.02);
-            background: #f5faff;
+        .skill-chip:hover {
+            border-color: #2f7df4;
+            transform: translateY(-2px);
+            background: #fafcff;
         }
 
         /* experience timeline */
-        .exp-timeline {
+        .exp-list {
             display: flex;
             flex-direction: column;
             gap: 28px;
         }
 
-        .exp-card {
+        .exp-item {
             background: white;
-            border-radius: 24px;
+            border-radius: 28px;
             padding: 28px 32px;
-            border: 1px solid #e9edf4;
-            box-shadow: 0 6px 14px rgba(0,21,41,0.03);
-            transition: 0.15s;
-        }
-
-        .exp-card:hover {
-            border-left: 6px solid #2563eb;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+            transition: all 0.2s;
+            border: 1px solid #eef3fc;
         }
 
         .exp-header {
@@ -233,40 +282,39 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .exp-role {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #0f2c4b;
-        }
-
-        .exp-company {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #2563eb;
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: #0a2540;
         }
 
         .exp-date {
-            background: #e9eff8;
-            padding: 6px 16px;
+            background: #eff4fc;
+            padding: 5px 16px;
             border-radius: 40px;
             font-weight: 500;
-            color: #254f7a;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            color: #2663b0;
+        }
+
+        .exp-company {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2f7df4;
+            margin-bottom: 18px;
         }
 
         .exp-details {
-            margin-top: 20px;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 24px;
         }
 
         .exp-desc {
             flex: 2;
-            min-width: 280px;
         }
 
         .exp-desc ul {
@@ -275,146 +323,96 @@
 
         .exp-desc li {
             margin-bottom: 12px;
-            padding-left: 28px;
+            padding-left: 26px;
             position: relative;
         }
 
         .exp-desc li::before {
             content: "▹";
-            color: #2563eb;
-            font-weight: 700;
+            color: #2f7df4;
+            font-weight: bold;
             position: absolute;
-            left: 4px;
+            left: 2px;
         }
 
-        .exp-tech {
+        .tech-stack {
             flex: 1;
-            min-width: 160px;
-            background: #f6faff;
-            border-radius: 40px;
-            padding: 18px 20px;
-            align-self: start;
+            background: #f8fbfe;
+            border-radius: 24px;
+            padding: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-content: flex-start;
         }
 
-        .exp-tech span {
-            display: inline-block;
+        .tech-stack span {
             background: white;
-            border: 1px solid #bdd3f0;
-            padding: 5px 14px;
+            border: 1px solid #cde0f5;
+            padding: 6px 14px;
             border-radius: 30px;
-            font-size: 0.85rem;
-            margin: 4px 4px 0 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1f4b7a;
         }
 
         /* projects grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
-            margin-top: 25px;
+            margin: 24px 0 16px;
         }
 
         .project-card {
             background: white;
             border-radius: 28px;
-            padding: 24px;
-            border: 1px solid #dde7f5;
+            padding: 28px;
             transition: all 0.25s;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            border: 1px solid #e2ecfb;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            border-color: #2563eb;
-            box-shadow: 0 20px 28px -8px #0a2c4b40;
+            transform: translateY(-6px);
+            border-color: #2f7df4;
+            box-shadow: 0 25px 30px -15px rgba(47,125,244,0.2);
         }
 
         .project-icon {
-            font-size: 2.8rem;
-            color: #1f4973;
-            margin-bottom: 16px;
+            font-size: 2.5rem;
+            color: #2f7df4;
+            margin-bottom: 14px;
         }
 
         .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 1.4rem;
+            font-weight: 800;
         }
 
-        .project-stack {
+        /* awards section */
+        .awards-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 16px 0 12px;
+            gap: 18px;
+            margin-top: 20px;
         }
 
-        .project-stack span {
-            background: #e3efff;
-            padding: 4px 12px;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: 500;
+        .award-card {
+            background: linear-gradient(135deg, #fff, #f6faff);
+            border-radius: 32px;
+            padding: 22px 26px;
+            flex: 1 1 220px;
+            border: 1px solid #e5efff;
+            text-align: center;
         }
 
-        .play-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            color: #2563eb;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .play-link i {
-            font-size: 1.1rem;
-        }
-
-        /* education & cert */
-        .edu-card {
-            background: white;
-            border-radius: 24px;
-            padding: 28px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #e2e8f0;
-        }
-
-        .edu-degree {
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        .cert-badge {
-            background: #f0f6ff;
-            padding: 6px 16px;
-            border-radius: 40px;
-            font-size: 0.95rem;
-        }
-
-        .cert-list {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .cert-item {
-            background: #f0f6ff;
-            padding: 6px 18px;
-            border-radius: 40px;
-            font-size: 0.95rem;
-        }
-
-        /* contact section + download */
-        .contact-section {
-            background: linear-gradient(120deg, #f0f6ff, #ffffff);
-            border-radius: 60px;
+        /* contact & download */
+        .contact-block {
+            background: linear-gradient(115deg, #ffffff 0%, #f1f7fe 100%);
+            border-radius: 48px;
+            margin: 70px 0 40px;
             padding: 48px 40px;
-            margin: 70px 0;
-            border: 1px solid #c9dcff;
+            border: 1px solid #cfe1ff;
         }
 
         .contact-flex {
@@ -425,277 +423,326 @@
             gap: 30px;
         }
 
-        .contact-links {
+        .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
-            font-size: 1.2rem;
+            gap: 28px;
         }
 
-        .contact-links a {
-            text-decoration: none;
-            color: #1e293b;
+        .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: 0.2s;
-        }
-
-        .contact-links a i {
-            color: #2563eb;
-            font-size: 1.7rem;
-        }
-
-        .download-area {
-            text-align: center;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: #0f3b6a;
-            color: white;
-            font-size: 1.4rem;
-            font-weight: 700;
-            padding: 20px 48px;
-            border-radius: 80px;
+            gap: 12px;
             text-decoration: none;
-            box-shadow: 0 15px 25px -10px #0a2c4b;
+            color: #1f3b62;
+            font-weight: 500;
+        }
+
+        .contact-item i {
+            font-size: 1.8rem;
+            color: #2f7df4;
+        }
+
+        .print-btn {
+            background: #0f2b44;
+            color: white;
+            padding: 16px 36px;
+            border-radius: 80px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
             transition: 0.2s;
-            border: 2px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 12px 20px -12px #0a2540;
         }
 
-        .download-btn i {
-            margin-right: 12px;
-            font-size: 2rem;
-        }
-
-        .download-btn:hover {
-            background: #1f4e83;
+        .print-btn:hover {
+            background: #1e4a76;
             transform: scale(1.02);
-            box-shadow: 0 22px 30px -10px #103a5e;
         }
 
         /* footer */
-        .footer-note {
+        .footer {
             text-align: center;
-            padding: 30px 0 20px;
-            color: #556b82;
-            border-top: 2px solid #cfdfef;
+            padding: 32px 0;
+            border-top: 1px solid #dceaff;
+            color: #4d6f96;
+            margin-top: 20px;
         }
 
-        /* responsive */
-        @media (max-width: 700px) {
-            .hero h1 { font-size: 2.6rem; }
+        @media (max-width: 780px) {
+            .hero h1 { font-size: 2.8rem; }
             .hero-content { flex-direction: column-reverse; text-align: center; }
             .btn-group { justify-content: center; }
-            .exp-header { flex-direction: column; }
+            .hero-stats { justify-content: center; }
+            .exp-header { flex-direction: column; gap: 10px; }
             .contact-flex { flex-direction: column; text-align: center; }
+        }
+
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            .hero {
+                background: #0b2b42;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .btn-group, .print-btn, .contact-block .print-btn, .hero .btn-group .btn-outline, .btn-primary {
+                display: none;
+            }
+            .contact-block {
+                background: #f5f5f5;
+                break-inside: avoid;
+            }
+            .project-card, .exp-item {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- HERO / INTRODUCTION SECTION -->
     <div class="hero">
         <div class="container hero-content">
             <div class="hero-text">
                 <h1>Md Hafiz</h1>
-                <div class="title">Senior Android Developer (8+ years)</div>
-                <div class="summary">
-                    Architecting scalable, high‑performance Android apps with Kotlin, Jetpack Compose, and clean architecture. 
-                    Passionate about user‑centric solutions, team mentoring, and innovation on Android Automotive & Play Store.
+                <div class="hero-tagline">
+                    Senior Android Developer
+                    <span class="hero-badge"><i class="fas fa-check-circle"></i> 8+ Years Exp</span>
+                    <span class="hero-badge"><i class="fas fa-car"></i> Android Automotive Expert</span>
+                </div>
+                <div class="hero-summary">
+                    Architecting high-impact Android applications with Kotlin, Jetpack Compose, and Clean Architecture. 
+                    Delivered 10+ apps to Google Play (1M+ cumulative downloads), specialized in Automotive OS, real-time analytics, and team leadership. 
+                    Award-winning engineer boosting engagement by 20%+ and reducing crash rates by 30%.
                 </div>
                 <div class="btn-group">
-                    <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
-                    <a href="#" class="btn btn-outline" id="downloadBtnHeader"><i class="fas fa-file-pdf"></i> Download Resume</a>
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get in touch</a>
+                    <button id="printResumeBtn" class="btn btn-outline"><i class="fas fa-file-pdf"></i> Save as PDF (Print)</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><span class="stat-number">1M+</span> <span>Downloads</span></div>
+                    <div class="stat-item"><span class="stat-number">15+</span> <span>Production Apps</span></div>
+                    <div class="stat-item"><span class="stat-number">30%</span> <span>CTR Boost</span></div>
                 </div>
             </div>
-            <div class="profile-placeholder">
-                <div class="profile-pic">
-                    <i class="fas fa-user-astronaut"></i> <!-- professional placeholder -->
+            <div class="hero-avatar">
+                <div class="avatar-card">
+                    <div class="avatar-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div style="margin-top: 12px; font-weight: 600;">Md Hafiz</div>
+                    <div class="quick-contact"><i class="fas fa-map-marker-alt"></i> Noida, India</div>
+                    <div><i class="fas fa-phone-alt"></i> +91 80923 08016</div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="container">
-        <!-- ABOUT ME SECTION -->
-        <section id="about">
+        <!-- about section + achievements summary -->
+        <section>
             <div class="section-title">
-                <i class="fas fa-user-circle"></i> <span>About Me</span>
+                <i class="fas fa-bullseye"></i> <span>Professional Edge</span>
             </div>
-            <div class="about-card">
-                <p>🔹 <strong>Senior Android Developer</strong> with 8+ years of experience designing, building, and optimizing scalable mobile applications. Expert in Kotlin, Java, and modern Android frameworks (Jetpack Compose, Coroutines, MVVM/Clean Architecture).</p>
-                <p style="margin-top: 18px;">🔹 Proven track record of delivering high‑performance, production‑ready apps to millions of users on Google Play. Deeply passionate about crafting smooth, intuitive user interfaces and writing clean, maintainable code. Experienced in leading Agile teams, mentoring juniors, and driving performance improvements (30% faster startups, 20% fewer crashes).</p>
-                <p style="margin-top: 18px;">🔹 Constantly exploring new tech in Android Automotive, Kotlin Multiplatform, and CI/CD innovations. believer in “clean code today, scalable app tomorrow”.</p>
+            <div class="about-grid">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;"><strong>💡 Impact-driven Android craftsman</strong> with deep expertise in <strong>Kotlin, Jetpack Compose, Android Automotive, MVVM/Clean Architecture, and Play Store optimization</strong>. I build scalable, future-proof apps that delight millions. Strong mentor, Agile leader, and passionate about solving complex problems with elegant code.</p>
+                <div class="skills-cloud">
+                    <span class="skill-chip"><i class="fab fa-kotlin"></i> Kotlin</span>
+                    <span class="skill-chip"><i class="fab fa-java"></i> Java</span>
+                    <span class="skill-chip"><i class="fas fa-mobile-alt"></i> Jetpack Compose</span>
+                    <span class="skill-chip"><i class="fas fa-layer-group"></i> MVVM/MVI</span>
+                    <span class="skill-chip"><i class="fas fa-fire"></i> Firebase (FCM, Analytics, Crashlytics)</span>
+                    <span class="skill-chip"><i class="fas fa-database"></i> Room, Retrofit</span>
+                    <span class="skill-chip"><i class="fas fa-car"></i> Android Automotive OS</span>
+                    <span class="skill-chip"><i class="fas fa-chart-line"></i> CleverTap, MoEngage</span>
+                    <span class="skill-chip"><i class="fas fa-code-branch"></i> CI/CD, Git, Jira</span>
+                </div>
             </div>
         </section>
 
-        <!-- SKILLS SECTION (full list as requested) -->
-        <section id="skills">
+        <!-- EXPERIENCE section (merged from both PDFs) -->
+        <section>
             <div class="section-title">
-                <i class="fas fa-code"></i> <span>Technical Skills</span>
+                <i class="fas fa-briefcase"></i> <span>Experience & Impact</span>
             </div>
-            <div class="skills-grid">
-                <!-- generated from list -->
-                <div class="skill-item"><i class="fab fa-kotlin"></i> Kotlin</div>
-                <div class="skill-item"><i class="fab fa-java"></i> Java</div>
-                <div class="skill-item"><i class="fas fa-mobile-alt"></i> Jetpack Compose</div>
-                <div class="skill-item"><i class="fas fa-cog"></i> Android SDK</div>
-                <div class="skill-item"><i class="fas fa-layer-group"></i> MVVM</div>
-                <div class="skill-item"><i class="fas fa-broom"></i> Clean Architecture</div>
-                <div class="skill-item"><i class="fas fa-project-diagram"></i> MVI</div>
-                <div class="skill-item"><i class="fas fa-sync-alt"></i> Coroutines</div>
-                <div class="skill-item"><i class="fas fa-water"></i> Flow</div>
-                <div class="skill-item"><i class="fas fa-bolt"></i> LiveData</div>
-                <div class="skill-item"><i class="fas fa-fire"></i> Firebase (Analytics, Crashlytics, FCM, Firestore)</div>
-                <div class="skill-item"><i class="fas fa-plug"></i> REST APIs</div>
-                <div class="skill-item"><i class="fas fa-exchange-alt"></i> Retrofit / Ktor</div>
-                <div class="skill-item"><i class="fas fa-database"></i> Room DB / SQLite</div>
-                <div class="skill-item"><i class="fas fa-syringe"></i> Hilt / Dagger</div>
-                <div class="skill-item"><i class="fab fa-git-alt"></i> Git / CI/CD</div>
-                <div class="skill-item"><i class="fas fa-users-cog"></i> Agile / Scrum</div>
-                <div class="skill-item"><i class="fas fa-palette"></i> Material Design 3</div>
-                <div class="skill-item"><i class="fas fa-tachometer-alt"></i> Performance optimization</div>
-                <div class="skill-item"><i class="fas fa-shield-alt"></i> App security best practices</div>
-                <div class="skill-item"><i class="fas fa-car"></i> Android Automotive OS</div>
-                <div class="skill-item"><i class="fas fa-cloud-upload-alt"></i> Play Store deployment</div>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE SECTION (LinkedIn style timeline) -->
-        <section id="experience">
-            <div class="section-title">
-                <i class="fas fa-briefcase"></i> <span>Experience</span>
-            </div>
-            <div class="exp-timeline">
-                <!-- current role -->
-                <div class="exp-card">
+            <div class="exp-list">
+                <!-- current role: Indian Express -->
+                <div class="exp-item">
                     <div class="exp-header">
                         <span class="exp-role">Senior Android Developer</span>
-                        <span class="exp-date">09/2021 – present</span>
+                        <span class="exp-date">09/2021 – Present</span>
                     </div>
-                    <div class="exp-company">The Indian Express Pvt Ltd · Noida</div>
+                    <div class="exp-company">The Indian Express Pvt. Ltd. · Noida (Media Leader)</div>
                     <div class="exp-details">
                         <div class="exp-desc">
                             <ul>
-                                <li><strong>Android Automotive app:</strong> built “Indian Express Car App” (Jetpack Compose, Navigation) – featured on Play Store, 4.7★, 1M+ downloads across 7 news apps.</li>
-                                <li>Architected modular MVVM/Clean code, reduced technical debt by 30%; mentored 4 developers, CI/CD (Bitrise).</li>
-                                <li>Integrated Firebase, MoEngage, CleverTap; boosted notification CTR by 40% with deep linking (IE Hack 2023 winner).</li>
-                                <li>Improved startup time by 18%, reduced ANR rate by 25% via memory profiling and lazy loading.</li>
+                                <li>Architected <strong>Indian Express Automotive Car App</strong> (Podcasts & shorts) using Jetpack Compose + Navigation Graph, optimized for in‑car systems, boosting engagement by 20%.</li>
+                                <li>Led deployment of <strong>5+ high-impact news apps</strong> (The Indian Express, Financial Express, Loksatta, FE Hindi) reaching <strong>1M+ downloads</strong> and 4.5★ ratings.</li>
+                                <li>Integrated MoEngage, CleverTap & Razorpay, implemented deep linking strategies: <strong>IE Hack 2023 winner</strong> (30% notification CTR improvement).</li>
+                                <li>Mentored 4 developers, conducted code reviews, enforced Clean Architecture with MVVM, reduced technical debt by 25%.</li>
+                                <li>Improved startup time and reduced ANRs by 18%, managed full Play Store lifecycle (beta, production, monitoring).</li>
                             </ul>
                         </div>
-                        <div class="exp-tech">
-                            <span>Kotlin</span> <span>Jetpack Compose</span> <span>MVVM</span> <span>Coroutines</span> <span>Hilt</span> <span>Firebase</span> <span>CI/CD</span>
+                        <div class="tech-stack">
+                            <span>Kotlin</span><span>Jetpack Compose</span><span>Navigation Graph</span><span>Firebase</span><span>Hilt</span><span>Coroutines</span><span>JUnit</span><span>CI/CD</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- previous role -->
-                <div class="exp-card">
+                <!-- role at ZMQ -->
+                <div class="exp-item">
                     <div class="exp-header">
                         <span class="exp-role">Software Engineer (Android)</span>
                         <span class="exp-date">01/2018 – 09/2021</span>
                     </div>
-                    <div class="exp-company">ZMQ Technology for Development · Delhi</div>
+                    <div class="exp-company">ZMQ Technology for Development · Delhi (Health & Social Sector)</div>
                     <div class="exp-details">
                         <div class="exp-desc">
                             <ul>
-                                <li>Developed <strong>Vishwaas Toolkit & ASHA Case Management</strong> (offline‑first) – impacted 500K+ health workers.</li>
-                                <li>Built real‑time sync (Room, WorkManager, Retrofit), improving data accuracy by 30% and reducing crashes 15%.</li>
-                                <li>Launched 4 health‑tech apps (TB StoryTeller, etc.) – 500K+ installs, Firebase integration.</li>
-                                <li>Awarded <strong>Employee of the Year 2020</strong> for leadership and technical excellence.</li>
+                                <li>Designed <strong>Vishwaas Toolkit & ASHA Case Management</strong> (offline-first dynamic form builder) — improved field data accuracy by 30%, impacted <strong>500K+ users</strong>.</li>
+                                <li>Resolved location tracking and sync logic, reduced crash rates by 15% using WorkManager + Room.</li>
+                                <li>Launched <strong>4 health-tech apps</strong> (TB StoryTeller, Pneumonia StoryTeller) with Firebase Cloud Messaging and real-time analytics.</li>
+                                <li>🎖️ <strong>Employee of the Year 2020</strong> for outstanding technical contribution and leadership.</li>
                             </ul>
                         </div>
-                        <div class="exp-tech">
-                            <span>Java</span> <span>Kotlin</span> <span>Room</span> <span>WorkManager</span> <span>FCM</span> <span>REST</span>
+                        <div class="tech-stack">
+                            <span>Java/Kotlin</span><span>Room</span><span>Retrofit</span><span>Firebase RTDB</span><span>Location Services</span><span>WorkManager</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROJECTS / PORTFOLIO -->
-        <section id="projects">
+        <!-- independent projects + notable work -->
+        <section>
             <div class="section-title">
-                <i class="fas fa-laptop-project"></i> <span>Projects & Portfolio</span>
+                <i class="fas fa-microchip"></i> <span>Flagship Projects & Innovation</span>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-car"></i></div>
-                    <div class="project-title">Automotive Express Car App</div>
-                    <div class="project-stack"><span>Kotlin</span><span>Compose</span><span>Automotive OS</span><span>Firebase</span></div>
-                    <p>In‑car podcast & news app with voice‑friendly UI, offline playback. Featured on Play Store, 4.7★.</p>
-                    <a href="#" class="play-link"><i class="fab fa-google-play"></i> view on Play</a>
+                    <div class="project-icon"><i class="fas fa-car-side"></i></div>
+                    <div class="project-title">Android Automotive Car App</div>
+                    <p>Modular in‑car entertainment app for podcasts/shorts, built with Jetpack Compose for Automotive OS, deep linking, and offline playback, featured on Google Play Automotive section.</p>
+                    <div style="margin-top: 12px;"><span class="skill-chip">Automotive OS</span><span class="skill-chip">Compose</span><span class="skill-chip">ExoPlayer</span></div>
                 </div>
                 <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-newspaper"></i></div>
-                    <div class="project-title">The Indian Express / Financial Express suite</div>
-                    <div class="project-stack"><span>Kotlin</span><span>MVVM</span><span>Compose</span><span>Firebase</span></div>
-                    <p>7 news apps with unified codebase, 1M+ downloads, real‑time updates, push, subscriptions.</p>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-heartbeat"></i></div>
-                    <div class="project-title">Vishwaas Toolkit · TB StoryTeller</div>
-                    <div class="project-stack"><span>Java/Kotlin</span><span>Room</span><span>WorkManager</span></div>
-                    <p>Offline‑first health toolkit for ASHA workers, 500K+ users, real‑time sync, multimedia stories.</p>
+                    <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="project-title">IE Hack Winner 2023 – Smart Notifications</div>
+                    <p>Boosted push notification Click-Through Rate by 30% using FCM deep-linking strategies and personalized audience segments, directly increasing DAU by 18%.</p>
+                    <div><span class="skill-chip">Firebase Cloud Messaging</span><span class="skill-chip">Deep Linking</span><span class="skill-chip">Analytics</span></div>
                 </div>
                 <div class="project-card">
                     <div class="project-icon"><i class="fas fa-mosque"></i></div>
-                    <div class="project-title">Islamic Unity App</div>
-                    <div class="project-stack"><span>Kotlin</span><span>MVVM</span><span>Navigation</span><span>Firebase</span></div>
-                    <p>Community app with podcasts, Quranic audio, prayer times. 100K+ installs, 4.5★.</p>
-                    <a href="#" class="play-link"><i class="fab fa-google-play"></i> Play Store</a>
+                    <div class="project-title">Islamic Unity App (Solo)</div>
+                    <p>Community app with prayer times, Quran reader, UPI donations, shared notes. 100K+ organic installs, 4.6★. Built with Kotlin, MVVM, Room, Firebase Analytics.</p>
+                    <div><span class="skill-chip">Kotlin</span><span class="skill-chip">Firebase</span><span class="skill-chip">ViewPager2</span></div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="project-title">ASHA Case Management Toolkit</div>
+                    <p>Dynamic form builder for real-time field data collection, offline-first architecture and secure cloud sync — improved data accuracy by 30% for 500K+ health workers.</p>
+                    <div><span class="skill-chip">Room</span><span class="skill-chip">WorkManager</span><span class="skill-chip">Firebase Sync</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- EDUCATION & CERTIFICATIONS -->
-        <section id="education">
+        <!-- Skills detailed list (comprehensive) -->
+        <section>
+            <div class="section-title">
+                <i class="fas fa-code-branch"></i> <span>Technical Arsenal</span>
+            </div>
+            <div class="skills-cloud" style="background: white; border-radius: 40px; padding: 24px 28px;">
+                <span class="skill-chip"><i class="fab fa-kotlin"></i> Kotlin</span>
+                <span class="skill-chip"><i class="fab fa-java"></i> Java</span>
+                <span class="skill-chip"><i class="fas fa-rocket"></i> Jetpack Compose</span>
+                <span class="skill-chip"><i class="fas fa-cubes"></i> MVVM / Clean Arch</span>
+                <span class="skill-chip"><i class="fas fa-compass"></i> Navigation Graph</span>
+                <span class="skill-chip"><i class="fas fa-car"></i> Android Automotive</span>
+                <span class="skill-chip"><i class="fas fa-fire"></i> Firebase Suite</span>
+                <span class="skill-chip"><i class="fas fa-database"></i> Room, SQLite</span>
+                <span class="skill-chip"><i class="fas fa-network-wired"></i> Retrofit / Ktor</span>
+                <span class="skill-chip"><i class="fas fa-tachometer-alt"></i> Coroutines & Flow</span>
+                <span class="skill-chip"><i class="fas fa-cookie-bite"></i> Dagger-Hilt</span>
+                <span class="skill-chip"><i class="fas fa-chart-simple"></i> MoEngage, CleverTap</span>
+                <span class="skill-chip"><i class="fab fa-git-alt"></i> Git / CI/CD pipelines</span>
+                <span class="skill-chip"><i class="fas fa-vial"></i> Unit/UI Testing</span>
+                <span class="skill-chip"><i class="fas fa-chart-line"></i> Crashlytics, Performance</span>
+            </div>
+        </section>
+
+        <!-- AWARDS & ACHIEVEMENTS (including 2024,2025) -->
+        <section>
+            <div class="section-title">
+                <i class="fas fa-trophy"></i> <span>Awards & Recognition</span>
+            </div>
+            <div class="awards-grid">
+                <div class="award-card"><i class="fas fa-medal" style="font-size: 2.2rem; color:#2f7df4;"></i><h3 style="margin: 10px 0 5px;">IE Hack 2023 Winner</h3><p>30% notification CTR improvement via deep linking & FCM innovation</p></div>
+                <div class="award-card"><i class="fas fa-award" style="font-size: 2.2rem; color:#2f7df4;"></i><h3 style="margin: 10px 0 5px;">Employee of the Year 2020</h3><p>ZMQ Technology — leadership & engineering excellence</p></div>
+                <div class="award-card"><i class="fas fa-star" style="font-size: 2.2rem; color:#2f7df4;"></i><h3 style="margin: 10px 0 5px;">Top Performer 2024 & 2025</h3><p>The Indian Express — consecutive recognition for automotive & app growth</p></div>
+                <div class="award-card"><i class="fas fa-download" style="font-size: 2.2rem; color:#2f7df4;"></i><h3 style="margin: 10px 0 5px;">1M+ Club</h3><p>Delivered multiple apps crossing 1M+ downloads with 4.5+ stars</p></div>
+            </div>
+        </section>
+
+        <!-- Education + certs -->
+        <section>
             <div class="section-title">
                 <i class="fas fa-graduation-cap"></i> <span>Education & Certifications</span>
             </div>
-            <div class="edu-card">
-                <div>
-                    <span class="edu-degree">B.Tech – Computer Science & Engineering</span>
-                    <div style="color: #2c3e50;">Dr. A.P.J. Abdul Kalam Technical University, Lucknow (2013–2017)</div>
+            <div style="background: white; border-radius: 28px; padding: 28px; border:1px solid #e3efff;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px;">
+                    <div>
+                        <h3>🎓 B.Tech – Computer Science & Engineering</h3>
+                        <p style="margin-top: 6px;">Dr. A.P.J. Abdul Kalam Technical University, Lucknow (2013–2017) | CGPA: 8.6</p>
+                    </div>
+                    <div class="cert-badge" style="background:#f0f5ff; padding: 10px 18px; border-radius: 40px;"><i class="fas fa-certificate"></i> Google Associate Android (Kotlin) – in progress</div>
                 </div>
-                <span class="cert-badge">CPI: 8.6/10</span>
-            </div>
-            <div class="cert-list">
-                <span class="cert-item">✔ Google Associate Android Developer (Kotlin) – in progress</span>
-                <span class="cert-item">✔ Meta Android Developer Certificate (Coursera 2022)</span>
-                <span class="cert-item">✔ Firebase Essentials (Google 2023)</span>
+                <div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px;">
+                    <span class="skill-chip"><i class="fas fa-check"></i> Meta Android Developer Certificate</span>
+                    <span class="skill-chip"><i class="fas fa-check"></i> Firebase Analytics & FCM Expert</span>
+                    <span class="skill-chip"><i class="fas fa-check"></i> Android Performance & Optimization</span>
+                </div>
             </div>
         </section>
 
-        <!-- CONTACT + DOWNLOAD RESUME (IMPORTANT) -->
-        <div class="contact-section" id="contact">
+        <!-- CONTACT + DOWNLOAD PDF BUTTON -->
+        <div class="contact-block" id="contact">
             <div class="contact-flex">
-                <div class="contact-links">
-                    <a href="mailto:mdhafiz7215@gmail.com"><i class="fas fa-envelope"></i> mdhafiz7215@gmail.com</a>
-                    <a href="https://linkedin.com/in/ermdhafiz" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/ermdhafiz</a>
-                    <a href="https://github.com/M3HCoding" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                <div class="contact-info">
+                    <a href="mailto:mdhafiz7215@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> mdhafiz7215@gmail.com</a>
+                    <a href="tel:+918092308016" class="contact-item"><i class="fas fa-phone-alt"></i> +91 80923 08016</a>
+                    <a href="https://linkedin.com/in/ermdhafiz" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> linkedin.com/in/ermdhafiz</a>
+                    <a href="#" class="contact-item"><i class="fab fa-github"></i> github.com/mdhafiz</a>
                 </div>
-                <div class="download-area">
-                    <p style="font-size: 1.2rem; margin-bottom: 12px;">👉 Download My Resume (PDF)</p>
-                    <a href="#" class="download-btn" id="downloadResumeBtn"><i class="fas fa-file-pdf"></i> Download Resume</a>
+                <div>
+                    <button id="printResumeBtnBottom" class="print-btn"><i class="fas fa-print"></i> Print / Save as PDF</button>
                 </div>
             </div>
+            <p style="margin-top: 28px; font-size: 0.9rem; color: #2d547b; text-align: center;">⭐ Expert in delivering high-impact, scalable Android solutions — available for senior/lead roles and automotive innovations.</p>
         </div>
 
-        <!-- optional footer -->
-        <div class="footer-note">
-            <p>📱 Senior Android Developer · 8+ years · Kotlin · Jetpack Compose · Clean Architecture · Android Automotive</p>
+        <div class="footer">
+            <p>© 2026 Md Hafiz — Senior Android Developer · Built with <i class="fas fa-heart" style="color:#2f7df4;"></i> for clean, modern mobile experiences</p>
         </div>
     </div>
 
-   <a href="https://m3hcoding.github.io/mdhafiz/Md_Hafiz_Resume_2026.pdf"
-   id="downloadResumeBtn"
-   download>
-   📥 Download Resume
-</a>
+    <script>
+        // unified print function -> generate PDF via browser print styles
+        function triggerPrint() {
+            window.print();
+        }
+        const printBtn1 = document.getElementById('printResumeBtn');
+        const printBtn2 = document.getElementById('printResumeBtnBottom');
+        if(printBtn1) printBtn1.addEventListener('click', triggerPrint);
+        if(printBtn2) printBtn2.addEventListener('click', triggerPrint);
+    </script>
 </body>
 </html>
-
-
-
