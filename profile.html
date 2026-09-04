@@ -1,748 +1,2217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Md Hafiz · Senior Android Developer | 8+ Years Expert in Kotlin, Jetpack Compose & Automotive</title>
-    <!-- Font Awesome 6 (Free) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Font: Inter + Fallback -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Md Hafiz – Senior Android Developer | Android Lead</title>
+    <meta name="description" content="Md Hafiz – Senior Android Developer with 8.5+ years of experience in Kotlin, Jetpack Compose, Clean Architecture, Android Automotive OS, and Firebase. 1M+ downloads." />
+    <meta name="keywords" content="Md Hafiz Android Developer, Senior Android Developer India, Senior Android Developer Noida, Kotlin Android Developer, Jetpack Compose Developer, Android Lead, Lead Android Engineer" />
+    <link rel="canonical" href="https://m3hcoding.github.io/mdhafiz/" />
+    <meta property="og:title" content="Md Hafiz – Senior Android Developer | Android Lead" />
+    <meta property="og:description" content="Senior Android Developer with 8.5+ years of experience building production-grade Android applications. Kotlin, Jetpack Compose, Clean Architecture, Android Automotive OS." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://m3hcoding.github.io/mdhafiz/" />
+    <meta name="theme-color" content="#0b1121" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <style>
-        * {
+        /* ============================================================
+               CSS Variables & Reset
+            ============================================================ */
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-nav: rgba(255, 255, 255, 0.85);
+            --bg-hero: #0b1121;
+            --bg-footer: #0b1121;
+            --text-primary: #0b1121;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --text-light: #f1f5f9;
+            --text-hero: #f1f5f9;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.15);
+            --radius: 16px;
+            --radius-sm: 10px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --accent-dark: #1d4ed8;
+            --gradient: linear-gradient(135deg, #2563eb, #7c3aed);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --bg-nav: rgba(15, 23, 42, 0.92);
+            --bg-hero: #020617;
+            --bg-footer: #020617;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: #f5f9ff;
-            color: #0a2540;
-            line-height: 1.45;
+        html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background var(--transition), color var(--transition);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 28px;
+            padding: 0 24px;
         }
 
-        /* ----- HERO SECTION (modern gradient) ----- */
+        /* ============================================================
+               Scrollbar
+            ============================================================ */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-dark);
+        }
+
+        /* ============================================================
+               Navbar
+            ============================================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--bg-nav);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo .accent {
+            color: var(--accent);
+        }
+
+        .nav-logo .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gradient);
+            margin-left: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            transition: all var(--transition);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all var(--transition);
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Mobile Nav */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--bg-nav);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                flex-direction: column;
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-color);
+                transform: translateY(-120%);
+                opacity: 0;
+                transition: all var(--transition);
+                pointer-events: none;
+            }
+
+            .nav-links.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-actions .theme-toggle {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ============================================================
+               Buttons
+            ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: var(--font);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-align: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            color: var(--text-light);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.85rem;
+        }
+
+        /* ============================================================
+               Hero
+            ============================================================ */
         .hero {
-            background: radial-gradient(circle at 10% 30%, #0b2b42, #051e30);
-            color: white;
-            padding: 64px 0 70px;
-            border-bottom: 4px solid #2f7df4;
+            background: var(--bg-hero);
+            color: var(--text-hero);
+            padding: 120px 0 80px;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: rgba(47, 125, 244, 0.15);
-            border-radius: 50%;
-            filter: blur(70px);
+            inset: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.12), transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.08), transparent 50%);
             pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero-content {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-text {
-            flex: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.6rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #FFFFFF, #bfd9ff);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .hero-tagline {
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: #bdd9ff;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .hero-badge {
-            background: #2f7df430;
-            backdrop-filter: blur(6px);
-            border-radius: 100px;
-            padding: 5px 14px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #d9ebff;
-        }
-
-        .hero-summary {
-            font-size: 1.08rem;
-            max-width: 680px;
-            margin: 18px 0 28px;
-            opacity: 0.9;
-            line-height: 1.5;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-        }
-
-        .btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background: white;
-            color: #0b2b42;
-            font-weight: 600;
-            padding: 12px 32px;
-            border-radius: 60px;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 8px 18px -8px rgba(0,0,0,0.3);
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            width: fit-content;
+            letter-spacing: 0.3px;
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            box-shadow: none;
+        .hero-badge .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-dot 2s infinite;
         }
 
-        .btn-outline:hover {
-            background: white;
-            color: #0b2b42;
-            transform: translateY(-2px);
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(0.8);
+            }
         }
 
-        .btn-primary {
-            background: #2f7df4;
-            color: white;
-            box-shadow: 0 8px 20px -6px #0b2b42;
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
         }
 
-        .btn-primary:hover {
-            background: #1f66d4;
-            transform: translateY(-3px);
+        .hero h1 .highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero .tagline {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 520px;
+            line-height: 1.7;
         }
 
         .hero-stats {
             display: flex;
             flex-wrap: wrap;
-            gap: 28px;
-            margin-top: 32px;
+            gap: 32px;
+            margin-top: 8px;
         }
 
-        .stat-item {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(4px);
-            padding: 8px 18px;
-            border-radius: 80px;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-
-        .hero-avatar {
-            flex: 0.8;
-            min-width: 200px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .avatar-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(12px);
-            border-radius: 48px;
-            padding: 18px 30px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .avatar-icon {
-            font-size: 5rem;
-            color: #b6d0ff;
-        }
-
-        .quick-contact {
-            margin-top: 18px;
-            font-size: 0.9rem;
-        }
-
-        /* section titles */
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #0f3b6a;
-            margin: 52px 0 28px 0;
-            border-left: 5px solid #2f7df4;
-            padding-left: 20px;
-        }
-
-        .section-title i {
-            color: #2f7df4;
-            font-size: 1.9rem;
-        }
-
-        /* about card */
-        .about-grid {
-            background: white;
-            border-radius: 32px;
-            padding: 32px 36px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
-            border: 1px solid #e9f0fa;
-            transition: 0.2s;
-        }
-
-        /* skills chips modern */
-        .skills-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 12px;
-        }
-
-        .skill-chip {
-            background: #ffffff;
-            border-radius: 40px;
-            padding: 8px 20px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            border: 1px solid #dceaff;
-            transition: all 0.2s;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-        }
-
-        .skill-chip i {
-            color: #2f7df4;
-            font-size: 1rem;
-        }
-
-        .skill-chip:hover {
-            border-color: #2f7df4;
-            transform: translateY(-2px);
-            background: #fafcff;
-        }
-
-        /* experience timeline */
-        .exp-list {
+        .hero-stat {
             display: flex;
             flex-direction: column;
-            gap: 28px;
         }
 
-        .exp-item {
-            background: white;
-            border-radius: 28px;
-            padding: 28px 32px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
-            transition: all 0.2s;
-            border: 1px solid #eef3fc;
+        .hero-stat .number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
         }
 
-        .exp-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 12px;
-        }
-
-        .exp-role {
-            font-size: 1.55rem;
-            font-weight: 800;
-            color: #0a2540;
-        }
-
-        .exp-date {
-            background: #eff4fc;
-            padding: 5px 16px;
-            border-radius: 40px;
-            font-weight: 500;
+        .hero-stat .label {
             font-size: 0.85rem;
-            color: #2663b0;
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .exp-company {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2f7df4;
-            margin-bottom: 18px;
-        }
-
-        .exp-details {
+        .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 24px;
+            gap: 14px;
+            margin-top: 8px;
         }
 
-        .exp-desc {
-            flex: 2;
-        }
-
-        .exp-desc ul {
-            list-style: none;
-        }
-
-        .exp-desc li {
-            margin-bottom: 12px;
-            padding-left: 26px;
-            position: relative;
-        }
-
-        .exp-desc li::before {
-            content: "▹";
-            color: #2f7df4;
-            font-weight: bold;
-            position: absolute;
-            left: 2px;
-        }
-
-        .tech-stack {
-            flex: 1;
-            background: #f8fbfe;
-            border-radius: 24px;
-            padding: 18px;
+        /* Hero Visual */
+        .hero-visual {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            align-content: flex-start;
+            justify-content: center;
+            align-items: center;
         }
 
-        .tech-stack span {
-            background: white;
-            border: 1px solid #cde0f5;
-            padding: 6px 14px;
-            border-radius: 30px;
+        .hero-code-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            width: 100%;
+            max-width: 460px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 25px 60px -20px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-code-card .code-line {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .hero-code-card .code-line .ln {
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 0.7rem;
+            min-width: 24px;
+            text-align: right;
+        }
+
+        .hero-code-card .code-line .kw {
+            color: #c084fc;
+        }
+        .hero-code-card .code-line .fn {
+            color: #60a5fa;
+        }
+        .hero-code-card .code-line .str {
+            color: #34d399;
+        }
+        .hero-code-card .code-line .cmt {
+            color: rgba(255, 255, 255, 0.25);
+        }
+        .hero-code-card .code-line .type {
+            color: #f472b6;
+        }
+        .hero-code-card .code-line .num {
+            color: #fbbf24;
+        }
+
+        .hero-code-card .code-line:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero-visual {
+                order: -1;
+            }
+            .hero-code-card {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 100px 0 60px;
+                min-height: auto;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .subtitle {
+                font-size: 1.05rem;
+            }
+            .hero-stats {
+                gap: 20px;
+            }
+            .hero-stat .number {
+                font-size: 1.3rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-code-card {
+                padding: 20px 16px;
+            }
+            .hero-code-card .code-line {
+                font-size: 0.7rem;
+                gap: 8px;
+            }
+        }
+
+        /* ============================================================
+               Section Shared
+            ============================================================ */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .section-header .label {
+            display: inline-block;
             font-size: 0.75rem;
             font-weight: 600;
-            color: #1f4b7a;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            background: rgba(37, 99, 235, 0.08);
+            padding: 4px 16px;
+            border-radius: 50px;
+            margin-bottom: 12px;
         }
 
-        /* projects grid */
+        .section-header h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 12px auto 0;
+            font-size: 1.05rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 4px;
+            margin: 16px auto 0;
+        }
+
+        /* ============================================================
+               About
+            ============================================================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+            line-height: 1.8;
+        }
+
+        .about-text .highlight-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .about-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .about-tags span {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all var(--transition);
+        }
+
+        .about-tags span:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .about-stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            transition: all var(--transition);
+        }
+
+        .about-stat-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .about-stat-card .num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .about-stat-card .desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .about-stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .about-stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================
+               Skills
+            ============================================================ */
+        .skills-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 20px 22px;
+            transition: all var(--transition);
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-card .icon {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .skill-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .skill-card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-card .tags span {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: var(--bg-primary);
+            padding: 2px 10px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* ============================================================
+               Experience
+            ============================================================ */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+            padding: 28px 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            transition: all var(--transition);
+        }
+
+        .timeline-item:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-item .meta .company {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-item .meta .role {
+            font-weight: 500;
+            color: var(--accent);
+            font-size: 0.95rem;
+        }
+
+        .timeline-item .meta .period {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .timeline-item .details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .timeline-item .details p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .timeline-item .details ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .timeline-item .details ul li {
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 2px 14px;
+            border-radius: 50px;
+            color: var(--text-muted);
+        }
+
+        .timeline-item .details .highlight-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .timeline-item .details .highlight-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: none;
+            border: none;
+            padding: 0;
+            border-radius: 0;
+            font-weight: 400;
+        }
+
+        .timeline-item .details .highlight-list li::before {
+            content: '▹';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .timeline-item .details .highlight-list li strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 20px 20px;
+            }
+            .timeline-item .meta .period {
+                margin-top: 2px;
+            }
+        }
+
+        /* ============================================================
+               Projects
+            ============================================================ */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-            margin: 24px 0 16px;
+            gap: 28px;
         }
 
         .project-card {
-            background: white;
-            border-radius: 28px;
-            padding: 28px;
-            transition: all 0.25s;
-            border: 1px solid #e2ecfb;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px 28px 24px;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
+            border-color: var(--accent);
             transform: translateY(-6px);
-            border-color: #2f7df4;
-            box-shadow: 0 25px 30px -15px rgba(47,125,244,0.2);
+            box-shadow: var(--shadow-lg);
         }
 
-        .project-icon {
-            font-size: 2.5rem;
-            color: #2f7df4;
-            margin-bottom: 14px;
+        .project-card .project-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 12px;
         }
 
-        .project-title {
-            font-size: 1.4rem;
-            font-weight: 800;
+        .project-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-primary);
         }
 
-        /* awards section */
-        .awards-grid {
+        .project-card .project-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+            background: rgba(37, 99, 235, 0.08);
+            padding: 2px 12px;
+            border-radius: 50px;
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .project-card .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 18px;
-            margin-top: 20px;
+            gap: 6px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
         }
 
-        .award-card {
-            background: linear-gradient(135deg, #fff, #f6faff);
-            border-radius: 32px;
-            padding: 22px 26px;
-            flex: 1 1 220px;
-            border: 1px solid #e5efff;
-            text-align: center;
+        .project-card .project-tech span {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            background: var(--bg-primary);
+            padding: 2px 12px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
         }
 
-        /* contact & download */
-        .contact-block {
-            background: linear-gradient(115deg, #ffffff 0%, #f1f7fe 100%);
-            border-radius: 48px;
-            margin: 70px 0 40px;
-            padding: 48px 40px;
-            border: 1px solid #cfe1ff;
-        }
-
-        .contact-flex {
+        .project-card .project-highlights {
+            margin-top: 12px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .project-card .project-highlights li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .project-card .project-highlights li::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================
+               Architecture
+            ============================================================ */
+        .arch-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .arch-diagram {
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 30px;
+            gap: 6px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 32px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+        }
+
+        .arch-layer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 10px 24px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            width: 100%;
+            max-width: 360px;
+            transition: all var(--transition);
+        }
+
+        .arch-layer .arrow {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .arch-layer.accent {
+            border-color: var(--accent);
+            background: rgba(37, 99, 235, 0.06);
+        }
+
+        .arch-arrow-down {
+            color: var(--text-muted);
+            font-size: 1.4rem;
+        }
+
+        .arch-notes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .arch-notes span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 4px 16px;
+            border-radius: 50px;
+        }
+
+        /* ============================================================
+               Performance / Leadership / Achievements
+            ============================================================ */
+        .perf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .perf-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 22px 24px;
+            transition: all var(--transition);
+        }
+
+        .perf-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .perf-card .icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .perf-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .perf-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .perf-card ul {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .perf-card ul li {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .perf-card ul li::before {
+            content: '›';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Achievements */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            padding: 24px;
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .achievement-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .achievement-card .icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .achievement-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .achievement-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ============================================================
+               Contact / CTA
+            ============================================================ */
+        .contact-section {
+            background: var(--bg-hero);
+            color: var(--text-hero);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .contact-section h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-section p {
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 560px;
+            margin: 12px auto 28px;
+            font-size: 1.05rem;
+        }
+
+        .contact-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
         }
 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 28px;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 36px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .contact-item {
+        .contact-info a {
             display: flex;
             align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #1f3b62;
-            font-weight: 500;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            transition: color var(--transition);
         }
 
-        .contact-item i {
-            font-size: 1.8rem;
-            color: #2f7df4;
+        .contact-info a:hover {
+            color: #fff;
         }
 
-        .print-btn {
-            background: #0f2b44;
-            color: white;
-            padding: 16px 36px;
-            border-radius: 80px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            border: none;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 12px 20px -12px #0a2540;
+        .contact-info a .icon {
+            color: var(--accent-light);
         }
 
-        .print-btn:hover {
-            background: #1e4a76;
-            transform: scale(1.02);
-        }
-
-        /* footer */
+        /* ============================================================
+               Footer
+            ============================================================ */
         .footer {
+            background: var(--bg-footer);
+            color: rgba(255, 255, 255, 0.3);
+            padding: 24px 0;
             text-align: center;
-            padding: 32px 0;
-            border-top: 1px solid #dceaff;
-            color: #4d6f96;
-            margin-top: 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
 
-        @media (max-width: 780px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero-content { flex-direction: column-reverse; text-align: center; }
-            .btn-group { justify-content: center; }
-            .hero-stats { justify-content: center; }
-            .exp-header { flex-direction: column; gap: 10px; }
-            .contact-flex { flex-direction: column; text-align: center; }
+        .footer a {
+            color: rgba(255, 255, 255, 0.4);
+            transition: color var(--transition);
         }
 
-        @media print {
-            body {
-                background: white;
-                margin: 0;
-                padding: 0;
+        .footer a:hover {
+            color: #fff;
+        }
+
+        /* ============================================================
+               Back to Top
+            ============================================================ */
+        .back-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: #fff;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+            transition: all var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .back-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .back-top:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+        }
+
+        /* ============================================================
+               Utility
+            ============================================================ */
+        .text-center {
+            text-align: center;
+        }
+        .mt-8 {
+            margin-top: 8px;
+        }
+        .mt-16 {
+            margin-top: 16px;
+        }
+        .mt-24 {
+            margin-top: 24px;
+        }
+        .gap-8 {
+            gap: 8px;
+        }
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .justify-center {
+            justify-content: center;
+        }
+
+        /* ============================================================
+               Responsive Fine-tune
+            ============================================================ */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
             }
-            .hero {
-                background: #0b2b42;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            section {
+                padding: 56px 0;
             }
-            .btn-group, .print-btn, .contact-block .print-btn, .hero .btn-group .btn-outline, .btn-primary {
+            .section-header {
+                margin-bottom: 36px;
+            }
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            .hero-code-card {
                 display: none;
             }
-            .contact-block {
-                background: #f5f5f5;
-                break-inside: avoid;
+            .hero h1 {
+                font-size: 2rem;
             }
-            .project-card, .exp-item {
-                break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #ccc;
+            .hero .tagline {
+                font-size: 0.95rem;
             }
-            a {
-                text-decoration: none;
-                color: black;
+            .timeline-item {
+                padding: 16px;
+            }
+            .project-card {
+                padding: 20px;
+            }
+            .contact-section h2 {
+                font-size: 1.8rem;
+            }
+            .contact-info {
+                gap: 16px;
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Md Hafiz</h1>
-                <div class="hero-tagline">
-                    Senior Android Developer
-                    <span class="hero-badge"><i class="fas fa-check-circle"></i> 8+ Years Exp</span>
-                    <span class="hero-badge"><i class="fas fa-car"></i> Android Automotive Expert</span>
+
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#hero" class="nav-logo" aria-label="Md Hafiz Home">
+                Md<span class="accent">.</span>Hafiz<span class="dot"></span>
+            </a>
+
+            <ul class="nav-links" id="navLinks" role="menubar">
+                <li role="none"><a href="#about" role="menuitem">About</a></li>
+                <li role="none"><a href="#skills" role="menuitem">Skills</a></li>
+                <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+                <li role="none"><a href="#projects" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#architecture" role="menuitem">Architecture</a></li>
+                <li role="none"><a href="#achievements" role="menuitem">Achievements</a></li>
+                <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Open to Senior / Lead Roles
                 </div>
-                <div class="hero-summary">
-                    Architecting high-impact Android applications with Kotlin, Jetpack Compose, and Clean Architecture. 
-                    Delivered 10+ apps to Google Play (1M+ cumulative downloads), specialized in Automotive OS, real-time analytics, and team leadership. 
-                    Award-winning engineer boosting engagement by 20%+ and reducing crash rates by 30%.
-                </div>
-                <div class="btn-group">
-                    <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get in touch</a>
-                    <button id="printResumeBtn" class="btn btn-outline"><i class="fas fa-file-pdf"></i> Save as PDF (Print)</button>
-                </div>
+
+                <h1>
+                    Md <span class="highlight">Hafiz</span>
+                </h1>
+                <div class="subtitle">Senior Android Developer &bull; Android Lead</div>
+                <p class="tagline">
+                    Building scalable, high-performance Android experiences with
+                    <strong style="color:#fff;">Kotlin</strong>,
+                    <strong style="color:#fff;">Jetpack Compose</strong>,
+                    <strong style="color:#fff;">Clean Architecture</strong> &amp;
+                    modern Android technologies.
+                </p>
+
                 <div class="hero-stats">
-                    <div class="stat-item"><span class="stat-number">1M+</span> <span>Downloads</span></div>
-                    <div class="stat-item"><span class="stat-number">15+</span> <span>Production Apps</span></div>
-                    <div class="stat-item"><span class="stat-number">30%</span> <span>CTR Boost</span></div>
+                    <div class="hero-stat">
+                        <span class="number">8.5+</span>
+                        <span class="label">Years Experience</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="number">1M+</span>
+                        <span class="label">App Downloads</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="number">500K+</span>
+                        <span class="label">Healthcare Users</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="number">4</span>
+                        <span class="label">Developers Mentored</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Contact Me
+                    </a>
+                    <a href="#projects" class="btn btn-outline-light">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                    <a href="https://www.linkedin.com/in/ermdhafiz/" target="_blank" rel="noopener" class="btn btn-outline-light">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
                 </div>
             </div>
-            <div class="hero-avatar">
-                <div class="avatar-card">
-                    <div class="avatar-icon"><i class="fas fa-laptop-code"></i></div>
-                    <div style="margin-top: 12px; font-weight: 600;">Md Hafiz</div>
-                    <div class="quick-contact"><i class="fas fa-map-marker-alt"></i> Noida, India</div>
-                    <div><i class="fas fa-phone-alt"></i> +91 80923 08016</div>
+
+            <div class="hero-visual">
+                <div class="hero-code-card">
+                    <div class="code-line"><span class="ln">01</span><span class="kw">@Composable</span></div>
+                    <div class="code-line"><span class="ln">02</span><span class="kw">fun</span> <span class="fn">AndroidApp</span>() {</div>
+                    <div class="code-line"><span class="ln">03</span>&nbsp;&nbsp;<span class="cmt">// 8.5+ years production</span></div>
+                    <div class="code-line"><span class="ln">04</span>&nbsp;&nbsp;<span class="kw">val</span> <span class="fn">scope</span> = <span class="type">CoroutineScope</span>(<span class="type">Dispatchers</span>.<span class="fn">IO</span>)</div>
+                    <div class="code-line"><span class="ln">05</span>&nbsp;&nbsp;<span class="kw">val</span> <span class="fn">state</span> = <span class="fn">remember</span> { <span class="type">MutableStateFlow</span>(<span class="type">UiState</span>.<span class="fn">Loading</span>()) }</div>
+                    <div class="code-line"><span class="ln">06</span>&nbsp;&nbsp;<span class="kw">val</span> <span class="fn">cleanArch</span> = <span class="type">CleanArchitecture</span>()</div>
+                    <div class="code-line"><span class="ln">07</span>&nbsp;&nbsp;<span class="fn">LaunchedEffect</span>(<span class="kw">Unit</span>) {</div>
+                    <div class="code-line"><span class="ln">08</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">fetchData</span>().<span class="fn">collect</span> { <span class="fn">updateUi</span>(it) }</div>
+                    <div class="code-line"><span class="ln">09</span>&nbsp;&nbsp;}</div>
+                    <div class="code-line"><span class="ln">10</span>&nbsp;&nbsp;<span class="fn">Box</span> { <span class="fn">when</span> (state.<span class="fn">value</span>) { ... } }</div>
+                    <div class="code-line"><span class="ln">11</span>}</div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="container">
-        <!-- about section + achievements summary -->
-        <section>
-            <div class="section-title">
-                <i class="fas fa-bullseye"></i> <span>Professional Edge</span>
+    <!-- ============================================================
+    ABOUT
+    ============================================================ -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">About Me</span>
+                <h2>Engineering Android Excellence</h2>
+                <div class="section-divider"></div>
             </div>
+
             <div class="about-grid">
-                <p style="font-size: 1.1rem; margin-bottom: 20px;"><strong>💡 Impact-driven Android craftsman</strong> with deep expertise in <strong>Kotlin, Jetpack Compose, Android Automotive, MVVM/Clean Architecture, and Play Store optimization</strong>. I build scalable, future-proof apps that delight millions. Strong mentor, Agile leader, and passionate about solving complex problems with elegant code.</p>
-                <div class="skills-cloud">
-                    <span class="skill-chip"><i class="fab fa-kotlin"></i> Kotlin</span>
-                    <span class="skill-chip"><i class="fab fa-java"></i> Java</span>
-                    <span class="skill-chip"><i class="fas fa-mobile-alt"></i> Jetpack Compose</span>
-                    <span class="skill-chip"><i class="fas fa-layer-group"></i> MVVM/MVI</span>
-                    <span class="skill-chip"><i class="fas fa-fire"></i> Firebase (FCM, Analytics, Crashlytics)</span>
-                    <span class="skill-chip"><i class="fas fa-database"></i> Room, Retrofit</span>
-                    <span class="skill-chip"><i class="fas fa-car"></i> Android Automotive OS</span>
-                    <span class="skill-chip"><i class="fas fa-chart-line"></i> CleverTap, MoEngage</span>
-                    <span class="skill-chip"><i class="fas fa-code-branch"></i> CI/CD, Git, Jira</span>
+                <div class="about-text">
+                    <p>
+                        I'm <span class="highlight-text">Md Hafiz</span>, a Senior Android Developer with
+                        <strong>8.5+ years</strong> of experience building production-grade Android applications
+                        across <strong>news, healthcare, and automotive</strong> domains.
+                    </p>
+                    <p>
+                        At <strong>The Indian Express</strong>, I delivered apps surpassing
+                        <strong>1M+ cumulative downloads</strong> and contributed to a
+                        <strong>15% crash reduction</strong> at ZMQ Technology, using
+                        <strong>Kotlin, Jetpack Compose, MVVM, and Clean Architecture</strong>
+                        to drive stability and scale.
+                    </p>
+                    <p>
+                        I specialize in modern Android development — Coroutines, Flow, StateFlow,
+                        Dependency Injection, Firebase, and Android Automotive OS — with a strong
+                        focus on <strong>performance, code quality, and team mentoring</strong>.
+                    </p>
+                    <div class="about-tags">
+                        <span>Kotlin</span>
+                        <span>Jetpack Compose</span>
+                        <span>Clean Architecture</span>
+                        <span>Android Automotive</span>
+                        <span>Firebase</span>
+                        <span>Team Mentoring</span>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- EXPERIENCE section (merged from both PDFs) -->
-        <section>
-            <div class="section-title">
-                <i class="fas fa-briefcase"></i> <span>Experience & Impact</span>
-            </div>
-            <div class="exp-list">
-                <!-- current role: Indian Express -->
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Senior Android Developer</span>
-                        <span class="exp-date">09/2021 – Present</span>
+                <div class="about-stats-grid">
+                    <div class="about-stat-card">
+                        <div class="num">8.5+</div>
+                        <div class="desc">Years of Android Experience</div>
                     </div>
-                    <div class="exp-company">The Indian Express Pvt. Ltd. · Noida (Media Leader)</div>
-                    <div class="exp-details">
-                        <div class="exp-desc">
-                            <ul>
-                                <li>Architected <strong>Indian Express Automotive Car App</strong> (Podcasts & shorts) using Jetpack Compose + Navigation Graph, optimized for in‑car systems, boosting engagement by 20%.</li>
-                                <li>Led deployment of <strong>5+ high-impact news apps</strong> (The Indian Express, Financial Express, Loksatta, FE Hindi) reaching <strong>1M+ downloads</strong> and 4.5★ ratings.</li>
-                                <li>Integrated MoEngage, CleverTap & Razorpay, implemented deep linking strategies: <strong>IE Hack 2023 winner</strong> (30% notification CTR improvement).</li>
-                                <li>Mentored 4 developers, conducted code reviews, enforced Clean Architecture with MVVM, reduced technical debt by 25%.</li>
-                                <li>Improved startup time and reduced ANRs by 18%, managed full Play Store lifecycle (beta, production, monitoring).</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            <span>Kotlin</span><span>Jetpack Compose</span><span>Navigation Graph</span><span>Firebase</span><span>Hilt</span><span>Coroutines</span><span>JUnit</span><span>CI/CD</span>
-                        </div>
+                    <div class="about-stat-card">
+                        <div class="num">1M+</div>
+                        <div class="desc">Cumulative Google Play Downloads</div>
                     </div>
-                </div>
-                <!-- role at ZMQ -->
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <span class="exp-role">Software Engineer (Android)</span>
-                        <span class="exp-date">01/2018 – 09/2021</span>
+                    <div class="about-stat-card">
+                        <div class="num">500K+</div>
+                        <div class="desc">Users Supported via Healthcare Apps</div>
                     </div>
-                    <div class="exp-company">ZMQ Technology for Development · Delhi (Health & Social Sector)</div>
-                    <div class="exp-details">
-                        <div class="exp-desc">
-                            <ul>
-                                <li>Designed <strong>Vishwaas Toolkit & ASHA Case Management</strong> (offline-first dynamic form builder) — improved field data accuracy by 30%, impacted <strong>500K+ users</strong>.</li>
-                                <li>Resolved location tracking and sync logic, reduced crash rates by 15% using WorkManager + Room.</li>
-                                <li>Launched <strong>4 health-tech apps</strong> (TB StoryTeller, Pneumonia StoryTeller) with Firebase Cloud Messaging and real-time analytics.</li>
-                                <li>🎖️ <strong>Employee of the Year 2020</strong> for outstanding technical contribution and leadership.</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            <span>Java/Kotlin</span><span>Room</span><span>Retrofit</span><span>Firebase RTDB</span><span>Location Services</span><span>WorkManager</span>
-                        </div>
+                    <div class="about-stat-card">
+                        <div class="num">4+</div>
+                        <div class="desc">Health-Tech Android Apps Launched</div>
+                    </div>
+                    <div class="about-stat-card">
+                        <div class="num">4</div>
+                        <div class="desc">Android Developers Mentored</div>
+                    </div>
+                    <div class="about-stat-card">
+                        <div class="num">15%</div>
+                        <div class="desc">Reported Crash Reduction at ZMQ</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- independent projects + notable work -->
-        <section>
-            <div class="section-title">
-                <i class="fas fa-microchip"></i> <span>Flagship Projects & Innovation</span>
+    <!-- ============================================================
+    SKILLS
+    ============================================================ -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Technical Expertise</span>
+                <h2>Tech Stack &amp; Tooling</h2>
+                <div class="section-divider"></div>
             </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="icon"><i class="fab fa-android"></i></div>
+                    <h4>Android</h4>
+                    <div class="tags">
+                        <span>SDK</span><span>AndroidX</span><span>Jetpack Compose</span>
+                        <span>XML</span><span>Material Design</span><span>Navigation</span>
+                        <span>ViewModel</span><span>LiveData</span><span>Room</span>
+                        <span>WorkManager</span><span>DataStore</span><span>Paging 3</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-code"></i></div>
+                    <h4>Languages</h4>
+                    <div class="tags"><span>Kotlin</span><span>Java</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-layer-group"></i></div>
+                    <h4>Architecture</h4>
+                    <div class="tags"><span>MVVM</span><span>MVI</span><span>Clean Architecture</span><span>SOLID</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>Async &amp; Reactive</h4>
+                    <div class="tags"><span>Coroutines</span><span>Flow</span><span>StateFlow</span><span>SharedFlow</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-cloud"></i></div>
+                    <h4>Networking</h4>
+                    <div class="tags"><span>Retrofit</span><span>REST APIs</span><span>JSON</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-plug"></i></div>
+                    <h4>Dependency Injection</h4>
+                    <div class="tags"><span>Hilt</span><span>Dagger</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-fire"></i></div>
+                    <h4>Firebase</h4>
+                    <div class="tags"><span>Crashlytics</span><span>Analytics</span><span>FCM</span><span>Remote Config</span><span>Dynamic Links</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-play"></i></div>
+                    <h4>Media</h4>
+                    <div class="tags"><span>Media3</span><span>ExoPlayer</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-vial"></i></div>
+                    <h4>Testing</h4>
+                    <div class="tags"><span>JUnit</span><span>Mockito</span><span>Espresso</span><span>Unit Testing</span><span>UI Testing</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h4>Performance</h4>
+                    <div class="tags"><span>Crash Analysis</span><span>ANR Analysis</span><span>Optimization</span><span>Debugging</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-tools"></i></div>
+                    <h4>Tools</h4>
+                    <div class="tags"><span>Android Studio</span><span>IntelliJ IDEA</span><span>Git</span><span>CI/CD</span><span>JIRA</span><span>Play Console</span></div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-cubes"></i></div>
+                    <h4>Third-Party SDKs</h4>
+                    <div class="tags"><span>MoEngage</span><span>CleverTap</span><span>Razorpay</span><span>Play Billing</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    EXPERIENCE
+    ============================================================ -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Career</span>
+                <h2>Professional Experience</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="timeline">
+                <!-- Indian Express -->
+                <div class="timeline-item">
+                    <div class="meta">
+                        <div class="company">The Indian Express</div>
+                        <div class="role">Senior Android Developer</div>
+                        <div class="period">Noida, India</div>
+                    </div>
+                    <div class="details">
+                        <p>
+                            Developed and maintained production Android applications —
+                            <strong>The Indian Express</strong>, <strong>Financial Express</strong>,
+                            <strong>Loksatta</strong>, and <strong>IE Car</strong> —
+                            collectively surpassing <strong>1M cumulative Google Play downloads</strong>.
+                        </p>
+                        <ul class="highlight-list">
+                            <li>Built the <strong>Indian Express Car App</strong> for Android Automotive OS, delivering a modular in-car entertainment experience for podcasts and short-form content.</li>
+                            <li>Architected scalable applications using <strong>MVVM</strong> and <strong>Clean Architecture</strong>, enhancing modularity and maintainability.</li>
+                            <li>Established <strong>Navigation Component</strong> patterns, deep linking, and structured user journeys across multiple apps.</li>
+                            <li>Integrated <strong>Firebase</strong> services — Analytics, FCM, Remote Config, Dynamic Links, Crashlytics — for real-time configuration and engagement.</li>
+                            <li>Diagnosed and resolved production crashes and ANRs using <strong>Firebase Crashlytics</strong> and <strong>Google Play Console</strong>.</li>
+                            <li>Incorporated <strong>MoEngage</strong>, <strong>CleverTap</strong>, <strong>Razorpay</strong>, and <strong>Google Play Billing</strong> for marketing automation and monetization.</li>
+                            <li>Conducted technical code reviews, enforced clean-code standards, and contributed to cross-project technical decision-making.</li>
+                            <li><strong>Mentored a team of four Android developers</strong>, providing technical guidance and supporting timely feature delivery.</li>
+                            <li>Applied <strong>Kotlin Coroutines</strong> and <strong>Flow</strong> to manage asynchronous data streams, improving UI responsiveness and performance.</li>
+                        </ul>
+                        <ul>
+                            <li>Kotlin</li><li>Java</li><li>Jetpack Compose</li><li>MVVM</li><li>Clean Architecture</li>
+                            <li>Firebase</li><li>Android Automotive OS</li><li>Media3</li><li>ExoPlayer</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- ZMQ -->
+                <div class="timeline-item">
+                    <div class="meta">
+                        <div class="company">ZMQ Technology for Development</div>
+                        <div class="role">Software Engineer</div>
+                        <div class="period">New Delhi, India</div>
+                    </div>
+                    <div class="details">
+                        <p>
+                            Designed, developed, and deployed Android applications from scratch for
+                            healthcare and social-sector use cases, owning the full development lifecycle.
+                        </p>
+                        <ul class="highlight-list">
+                            <li>Built <strong>Vishwaas Toolkit</strong> and <strong>ASHA Case Management Toolkit</strong> using Kotlin and Java, reaching <strong>500K+ users</strong>.</li>
+                            <li>Diagnosed and resolved issues in location tracking and data synchronization, contributing to a reported <strong>15% reduction in production crashes</strong>.</li>
+                            <li>Integrated <strong>Firebase</strong> for secure cloud storage and real-time data updates, ensuring reliable offline-to-online synchronization.</li>
+                            <li>Strengthened app performance and stability through targeted Android optimization techniques.</li>
+                            <li>Launched <strong>4+ health-tech Android apps</strong> — including TB StoryTeller and Pneumonia StoryTeller — to Google Play for large-scale public-sector use.</li>
+                            <li>Delivered Android SDK-based applications for large-scale healthcare deployments, supporting field workers across public-sector health programs.</li>
+                        </ul>
+                        <ul>
+                            <li>Android</li><li>Firebase</li><li>Kotlin</li><li>Java</li>
+                            <li>Offline-first</li><li>Data Sync</li><li>Location Tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PROJECTS
+    ============================================================ -->
+    <section id="projects" style="background:var(--bg-secondary);border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Portfolio</span>
+                <h2>Featured Projects</h2>
+                <div class="section-divider"></div>
+            </div>
+
             <div class="projects-grid">
+                <!-- Indian Express -->
                 <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-car-side"></i></div>
-                    <div class="project-title">Android Automotive Car App</div>
-                    <p>Modular in‑car entertainment app for podcasts/shorts, built with Jetpack Compose for Automotive OS, deep linking, and offline playback, featured on Google Play Automotive section.</p>
-                    <div style="margin-top: 12px;"><span class="skill-chip">Automotive OS</span><span class="skill-chip">Compose</span><span class="skill-chip">ExoPlayer</span></div>
+                    <div class="project-icon"><i class="fas fa-newspaper"></i></div>
+                    <span class="project-tag">News</span>
+                    <h3>The Indian Express</h3>
+                    <p>Production-grade Android news app with news feeds, subscriptions, and deep linking.</p>
+                    <ul class="project-highlights">
+                        <li>Firebase push notifications &amp; Analytics</li>
+                        <li>MoEngage tracking for user engagement</li>
+                        <li>ANR &amp; Crashlytics resolution</li>
+                        <li>Play Store release management</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Kotlin</span><span>MVVM</span><span>Firebase</span><span>MoEngage</span>
+                    </div>
                 </div>
+
+                <!-- Loksatta -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-language"></i></div>
+                    <span class="project-tag">News</span>
+                    <h3>Loksatta</h3>
+                    <p>Marathi-language Android news platform with subscriptions and deep linking.</p>
+                    <ul class="project-highlights">
+                        <li>Firebase push notifications &amp; Analytics</li>
+                        <li>MoEngage audience targeting</li>
+                        <li>Crash &amp; ANR diagnostics</li>
+                        <li>Play Store release cycles</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Kotlin</span><span>Firebase</span><span>MoEngage</span>
+                    </div>
+                </div>
+
+                <!-- Financial Express -->
                 <div class="project-card">
                     <div class="project-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="project-title">IE Hack Winner 2023 – Smart Notifications</div>
-                    <p>Boosted push notification Click-Through Rate by 30% using FCM deep-linking strategies and personalized audience segments, directly increasing DAU by 18%.</p>
-                    <div><span class="skill-chip">Firebase Cloud Messaging</span><span class="skill-chip">Deep Linking</span><span class="skill-chip">Analytics</span></div>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-mosque"></i></div>
-                    <div class="project-title">Islamic Unity App (Solo)</div>
-                    <p>Community app with prayer times, Quran reader, UPI donations, shared notes. 100K+ organic installs, 4.6★. Built with Kotlin, MVVM, Room, Firebase Analytics.</p>
-                    <div><span class="skill-chip">Kotlin</span><span class="skill-chip">Firebase</span><span class="skill-chip">ViewPager2</span></div>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <div class="project-title">ASHA Case Management Toolkit</div>
-                    <p>Dynamic form builder for real-time field data collection, offline-first architecture and secure cloud sync — improved data accuracy by 30% for 500K+ health workers.</p>
-                    <div><span class="skill-chip">Room</span><span class="skill-chip">WorkManager</span><span class="skill-chip">Firebase Sync</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills detailed list (comprehensive) -->
-        <section>
-            <div class="section-title">
-                <i class="fas fa-code-branch"></i> <span>Technical Arsenal</span>
-            </div>
-            <div class="skills-cloud" style="background: white; border-radius: 40px; padding: 24px 28px;">
-                <span class="skill-chip"><i class="fab fa-kotlin"></i> Kotlin</span>
-                <span class="skill-chip"><i class="fab fa-java"></i> Java</span>
-                <span class="skill-chip"><i class="fas fa-rocket"></i> Jetpack Compose</span>
-                <span class="skill-chip"><i class="fas fa-cubes"></i> MVVM / Clean Arch</span>
-                <span class="skill-chip"><i class="fas fa-compass"></i> Navigation Graph</span>
-                <span class="skill-chip"><i class="fas fa-car"></i> Android Automotive</span>
-                <span class="skill-chip"><i class="fas fa-fire"></i> Firebase Suite</span>
-                <span class="skill-chip"><i class="fas fa-database"></i> Room, SQLite</span>
-                <span class="skill-chip"><i class="fas fa-network-wired"></i> Retrofit / Ktor</span>
-                <span class="skill-chip"><i class="fas fa-tachometer-alt"></i> Coroutines & Flow</span>
-                <span class="skill-chip"><i class="fas fa-cookie-bite"></i> Dagger-Hilt</span>
-                <span class="skill-chip"><i class="fas fa-chart-simple"></i> MoEngage, CleverTap</span>
-                <span class="skill-chip"><i class="fab fa-git-alt"></i> Git / CI/CD pipelines</span>
-                <span class="skill-chip"><i class="fas fa-vial"></i> Unit/UI Testing</span>
-                <span class="skill-chip"><i class="fas fa-chart-line"></i> Crashlytics, Performance</span>
-            </div>
-        </section>
-
-        <!-- AWARDS & ACHIEVEMENTS (including 2024,2025) -->
-        <section>
-            <div class="section-title">
-                <i class="fas fa-trophy"></i> <span>Awards & Recognition</span>
-            </div>
-            <div class="awards-grid">
-                <div class="award-card"><i class="fas fa-medal" style="font-size: 2.2rem; color:#2f7df4;"></i><h3 style="margin: 10px 0 5px;">IE Hack 2023 Winner</h3><p>30% notification CTR improvement via deep linking & FCM innovation</p></div>
-                <div class="award-card"><i class="fas fa-award" style="font-size: 2.2rem; color:#2f7df4;"></i><h3 style="margin: 10px 0 5px;">Employee of the Year 2020</h3><p>ZMQ Technology — leadership & engineering excellence</p></div>
-                <div class="award-card"><i class="fas fa-star" style="font-size: 2.2rem; color:#2f7df4;"></i><h3 style="margin: 10px 0 5px;">Top Performer 2024 & 2025</h3><p>The Indian Express — consecutive recognition for automotive & app growth</p></div>
-                <div class="award-card"><i class="fas fa-download" style="font-size: 2.2rem; color:#2f7df4;"></i><h3 style="margin: 10px 0 5px;">1M+ Club</h3><p>Delivered multiple apps crossing 1M+ downloads with 4.5+ stars</p></div>
-            </div>
-        </section>
-
-        <!-- Education + certs -->
-        <section>
-            <div class="section-title">
-                <i class="fas fa-graduation-cap"></i> <span>Education & Certifications</span>
-            </div>
-            <div style="background: white; border-radius: 28px; padding: 28px; border:1px solid #e3efff;">
-                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px;">
-                    <div>
-                        <h3>🎓 B.Tech – Computer Science & Engineering</h3>
-                        <p style="margin-top: 6px;">Dr. A.P.J. Abdul Kalam Technical University, Lucknow (2013–2017) | CGPA: 8.6</p>
+                    <span class="project-tag">Business</span>
+                    <h3>Financial Express</h3>
+                    <p>Scalable Android business-news platform with modular architecture.</p>
+                    <ul class="project-highlights">
+                        <li>Kotlin, Java, MVVM, Jetpack components</li>
+                        <li>Subscriptions &amp; push notifications</li>
+                        <li>Analytics SDK integration</li>
+                        <li>Production debugging &amp; regression testing</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Kotlin</span><span>Java</span><span>MVVM</span><span>Jetpack</span>
                     </div>
-                    <div class="cert-badge" style="background:#f0f5ff; padding: 10px 18px; border-radius: 40px;"><i class="fas fa-certificate"></i> Google Associate Android (Kotlin) – in progress</div>
                 </div>
-                <div style="margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px;">
-                    <span class="skill-chip"><i class="fas fa-check"></i> Meta Android Developer Certificate</span>
-                    <span class="skill-chip"><i class="fas fa-check"></i> Firebase Analytics & FCM Expert</span>
-                    <span class="skill-chip"><i class="fas fa-check"></i> Android Performance & Optimization</span>
+
+                <!-- IE Car -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-car"></i></div>
+                    <span class="project-tag">Automotive</span>
+                    <h3>IE Car — Android Automotive</h3>
+                    <p>Modular Android Automotive app with automotive-specific UX, navigation, and media playback.</p>
+                    <ul class="project-highlights">
+                        <li>Android Automotive OS</li>
+                        <li>Media3 / ExoPlayer for audio/video streaming</li>
+                        <li>Podcasts &amp; short-form content</li>
+                        <li>Performance &amp; stability optimization</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Android Automotive</span><span>Media3</span><span>ExoPlayer</span><span>Kotlin</span>
+                    </div>
+                </div>
+
+                <!-- Vishwaas Toolkit -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-heartbeat"></i></div>
+                    <span class="project-tag">Healthcare</span>
+                    <h3>Vishwaas / ASHA Toolkit</h3>
+                    <p>Offline-first Android app with local storage, data sync, and dynamic form rendering for field workers.</p>
+                    <ul class="project-highlights">
+                        <li>Offline-first architecture</li>
+                        <li>Firebase &amp; backend API integration</li>
+                        <li>Real-time data sync in low-connectivity</li>
+                        <li>Large-scale healthcare deployments</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Kotlin</span><span>Java</span><span>Firebase</span><span>Offline-first</span>
+                    </div>
+                </div>
+
+                <!-- Health-Tech Apps -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-stethoscope"></i></div>
+                    <span class="project-tag">Healthcare</span>
+                    <h3>Health-Tech Apps</h3>
+                    <p>Launched 4+ health-tech Android apps including TB StoryTeller and Pneumonia StoryTeller.</p>
+                    <ul class="project-highlights">
+                        <li>Public-sector healthcare deployments</li>
+                        <li>Support for field workers</li>
+                        <li>Android SDK-based applications</li>
+                        <li>Reached 500K+ users</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Android</span><span>Firebase</span><span>Kotlin</span><span>Java</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CONTACT + DOWNLOAD PDF BUTTON -->
-        <div class="contact-block" id="contact">
-            <div class="contact-flex">
-                <div class="contact-info">
-                    <a href="mailto:mdhafiz7215@gmail.com" class="contact-item"><i class="fas fa-envelope"></i> mdhafiz7215@gmail.com</a>
-                    <a href="tel:+918092308016" class="contact-item"><i class="fas fa-phone-alt"></i> +91 80923 08016</a>
-                    <a href="https://linkedin.com/in/ermdhafiz" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i> linkedin.com/in/ermdhafiz</a>
-                    <a href="#" class="contact-item"><i class="fab fa-github"></i> github.com/mdhafiz</a>
+    <!-- ============================================================
+    ARCHITECTURE
+    ============================================================ -->
+    <section class="arch-section" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Engineering Approach</span>
+                <h2>Architecture &amp; Design</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="arch-diagram">
+                <div class="arch-layer accent">
+                    <i class="fas fa-mobile-alt"></i> UI Layer (Compose / XML)
                 </div>
-                <div>
-                    <button id="printResumeBtnBottom" class="print-btn"><i class="fas fa-print"></i> Print / Save as PDF</button>
+                <div class="arch-arrow-down"><i class="fas fa-chevron-down"></i></div>
+                <div class="arch-layer">
+                    <i class="fas fa-layer-group"></i> ViewModel / State (StateFlow)
+                </div>
+                <div class="arch-arrow-down"><i class="fas fa-chevron-down"></i></div>
+                <div class="arch-layer">
+                    <i class="fas fa-code-branch"></i> Use Cases (Business Logic)
+                </div>
+                <div class="arch-arrow-down"><i class="fas fa-chevron-down"></i></div>
+                <div class="arch-layer accent">
+                    <i class="fas fa-database"></i> Repository Pattern
+                </div>
+                <div class="arch-arrow-down"><i class="fas fa-chevron-down"></i></div>
+                <div class="arch-layer">
+                    <i class="fas fa-cloud-upload-alt"></i> Remote / Local Data Sources
                 </div>
             </div>
-            <p style="margin-top: 28px; font-size: 0.9rem; color: #2d547b; text-align: center;">⭐ Expert in delivering high-impact, scalable Android solutions — available for senior/lead roles and automotive innovations.</p>
-        </div>
 
-        <div class="footer">
-            <p>© 2026 Md Hafiz — Senior Android Developer · Built with <i class="fas fa-heart" style="color:#2f7df4;"></i> for clean, modern mobile experiences</p>
+            <div class="arch-notes">
+                <span>MVVM</span>
+                <span>Clean Architecture</span>
+                <span>SOLID</span>
+                <span>Repository Pattern</span>
+                <span>Coroutines + Flow</span>
+                <span>Dependency Injection</span>
+                <span>Offline-first</span>
+                <span>Performance Optimization</span>
+                <span>Testing</span>
+            </div>
         </div>
-    </div>
+    </section>
 
+    <!-- ============================================================
+    PRODUCTION & PERFORMANCE
+    ============================================================ -->
+    <section id="production" style="background:var(--bg-secondary);border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Production Excellence</span>
+                <h2>Performance &amp; Release Engineering</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="perf-grid">
+                <div class="perf-card">
+                    <div class="icon"><i class="fas fa-bug"></i></div>
+                    <h4>Crash &amp; ANR Analysis</h4>
+                    <ul>
+                        <li>Firebase Crashlytics</li>
+                        <li>Google Play Console diagnostics</li>
+                        <li>Production debugging &amp; resolution</li>
+                    </ul>
+                </div>
+
+                <div class="perf-card">
+                    <div class="icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h4>Performance Optimization</h4>
+                    <ul>
+                        <li>UI responsiveness with Coroutines / Flow</li>
+                        <li>Memory &amp; battery optimization</li>
+                        <li>Stability &amp; smooth rendering</li>
+                    </ul>
+                </div>
+
+                <div class="perf-card">
+                    <div class="icon"><i class="fas fa-rocket"></i></div>
+                    <h4>Release Management</h4>
+                    <ul>
+                        <li>Play Store deployment &amp; versioning</li>
+                        <li>Regression testing &amp; QA coordination</li>
+                        <li>Production monitoring &amp; rollback</li>
+                    </ul>
+                </div>
+
+                <div class="perf-card">
+                    <div class="icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Observability</h4>
+                    <ul>
+                        <li>Firebase Analytics &amp; Crashlytics</li>
+                        <li>FCM push notifications</li>
+                        <li>Remote Config &amp; Dynamic Links</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    LEADERSHIP
+    ============================================================ -->
+    <section id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Leadership</span>
+                <h2>Leadership &amp; Engineering Impact</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="perf-grid">
+                <div class="perf-card">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h4>Team Mentoring</h4>
+                    <p>Mentored <strong>4 Android developers</strong>, providing technical guidance and supporting timely delivery of production features.</p>
+                </div>
+
+                <div class="perf-card">
+                    <div class="icon"><i class="fas fa-code-review"></i></div>
+                    <h4>Code Reviews &amp; Standards</h4>
+                    <p>Conducted technical code reviews, enforced clean-code and architecture standards, and contributed to cross-project technical decision-making.</p>
+                </div>
+
+                <div class="perf-card">
+                    <div class="icon"><i class="fas fa-sitemap"></i></div>
+                    <h4>Architecture Guidance</h4>
+                    <p>Architected scalable applications using MVVM and Clean Architecture, enhancing modularity, maintainability, and feature development velocity.</p>
+                </div>
+
+                <div class="perf-card">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>Agile Delivery</h4>
+                    <p>Operated within Agile development processes, coordinating feature delivery, debugging, testing, release cycles, and production support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ACHIEVEMENTS
+    ============================================================ -->
+    <section id="achievements" style="background:var(--bg-secondary);border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color);">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Recognition</span>
+                <h2>Key Achievements</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="icon"><i class="fas fa-trophy"></i></div>
+                    <h4>IE Hack 2023 Winner</h4>
+                    <p>Recognized for work focused on improving application notification click-through rate.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="icon"><i class="fas fa-star"></i></div>
+                    <h4>Employee of the Year – 2020</h4>
+                    <p>Recognized for outstanding contributions.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="icon"><i class="fas fa-medal"></i></div>
+                    <h4>Employee of the Month – 2025</h4>
+                    <p>Recognized at The Indian Express Pvt Ltd for outstanding contribution and delivery impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    OPEN TO OPPORTUNITIES
+    ============================================================ -->
+    <section id="opportunities">
+        <div class="container">
+            <div class="section-header">
+                <span class="label">Career</span>
+                <h2>Open to Opportunities</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div style="text-align:center;max-width:700px;margin:0 auto;">
+                <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;">
+                    I am open to opportunities where I can contribute as a
+                    <strong style="color:var(--text-primary);">Senior Android Developer</strong> or
+                    <strong style="color:var(--text-primary);">Android Lead</strong>,
+                    solving complex engineering problems and building scalable, reliable Android applications.
+                </p>
+                <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px;">
+                    <span style="background:var(--bg-card);border:1px solid var(--border-color);padding:6px 20px;border-radius:50px;font-weight:500;font-size:0.9rem;color:var(--text-secondary);">Senior Android Developer</span>
+                    <span style="background:var(--bg-card);border:1px solid var(--border-color);padding:6px 20px;border-radius:50px;font-weight:500;font-size:0.9rem;color:var(--text-secondary);">Android Lead</span>
+                    <span style="background:var(--bg-card);border:1px solid var(--border-color);padding:6px 20px;border-radius:50px;font-weight:500;font-size:0.9rem;color:var(--text-secondary);">Lead Android Engineer</span>
+                    <span style="background:var(--bg-card);border:1px solid var(--border-color);padding:6px 20px;border-radius:50px;font-weight:500;font-size:0.9rem;color:var(--text-secondary);">Senior Mobile Engineer</span>
+                </div>
+                <div style="margin-top:28px;">
+                    <a href="mailto:mdhafiz7215@gmail.com?subject=Application%20%E2%80%93%20Senior%20Android%20Developer%20%2F%20Android%20Lead%20%E2%80%93%20Md%20Hafiz" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Contact for Opportunities
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CONTACT
+    ============================================================ -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2>Let's Build Great Android Products</h2>
+            <p>
+                I am open to opportunities where I can contribute as a Senior Android Developer or Android Lead,
+                solving complex engineering problems and building scalable, reliable Android applications.
+            </p>
+            <div class="contact-actions">
+                <a href="mailto:mdhafiz7215@gmail.com?subject=Application%20%E2%80%93%20Senior%20Android%20Developer%20%2F%20Android%20Lead%20%E2%80%93%20Md%20Hafiz" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/ermdhafiz/" target="_blank" rel="noopener" class="btn btn-outline-light">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="#hero" class="btn btn-outline-light">
+                    <i class="fas fa-arrow-up"></i> Top
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <a href="mailto:mdhafiz7215@gmail.com">
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    mdhafiz7215@gmail.com
+                </a>
+                <a href="tel:+918092308016">
+                    <span class="icon"><i class="fas fa-phone"></i></span>
+                    +91 8092308016
+                </a>
+                <a href="https://www.linkedin.com/in/ermdhafiz/" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+                    linkedin.com/in/ermdhafiz
+                </a>
+                <span>
+                    <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                    Noida, Uttar Pradesh, India
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                &copy; 2026 <a href="#hero">Md Hafiz</a> &bull; Built with <i class="fas fa-heart" style="color:#ef4444;font-size:0.75rem;"></i> for Android Excellence
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+    BACK TO TOP
+    ============================================================ -->
+    <button class="back-top" id="backTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- ============================================================
+    JAVASCRIPT
+    ============================================================ -->
     <script>
-        // unified print function -> generate PDF via browser print styles
-        function triggerPrint() {
-            window.print();
-        }
-        const printBtn1 = document.getElementById('printResumeBtn');
-        const printBtn2 = document.getElementById('printResumeBtnBottom');
-        if(printBtn1) printBtn1.addEventListener('click', triggerPrint);
-        if(printBtn2) printBtn2.addEventListener('click', triggerPrint);
+        (function() {
+            'use strict';
+
+            // ---- Theme ----
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+
+            function setTheme(theme) {
+                html.setAttribute('data-theme', theme);
+                themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                localStorage.setItem('theme', theme);
+            }
+
+            const saved = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initial = saved || (prefersDark ? 'dark' : 'light');
+            setTheme(initial);
+
+            themeToggle.addEventListener('click', function() {
+                const current = html.getAttribute('data-theme');
+                setTheme(current === 'dark' ? 'light' : 'dark');
+            });
+
+            // ---- Mobile Nav ----
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            hamburger.addEventListener('click', function() {
+                const open = this.classList.toggle('open');
+                navLinks.classList.toggle('open');
+                this.setAttribute('aria-expanded', open);
+            });
+
+            // Close on link click (mobile)
+            navLinks.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('open');
+                    navLinks.classList.remove('open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // ---- Nav scroll & active ----
+            const navbar = document.getElementById('navbar');
+            const sections = document.querySelectorAll('section[id]');
+            const navAnchors = navLinks.querySelectorAll('a');
+
+            function updateNav() {
+                const scrollY = window.scrollY + 100;
+
+                let currentId = '';
+                sections.forEach(function(sec) {
+                    const top = sec.offsetTop;
+                    const height = sec.offsetHeight;
+                    if (scrollY >= top && scrollY < top + height) {
+                        currentId = sec.getAttribute('id');
+                    }
+                });
+
+                navAnchors.forEach(function(a) {
+                    a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+                });
+
+                // Navbar shadow
+                navbar.classList.toggle('scrolled', window.scrollY > 20);
+            }
+
+            window.addEventListener('scroll', updateNav, { passive: true });
+            window.addEventListener('load', updateNav);
+
+            // ---- Back to Top ----
+            const backTop = document.getElementById('backTop');
+
+            window.addEventListener('scroll', function() {
+                backTop.classList.toggle('visible', window.scrollY > 600);
+            }, { passive: true });
+
+            backTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ---- Smooth anchor scroll (progressive enhancement) ----
+            document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+                a.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+        })();
     </script>
+
 </body>
 </html>
